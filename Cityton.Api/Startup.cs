@@ -43,7 +43,7 @@ namespace Cityton.Api
                 IHandler<LoginRequest, string>,
                 LoginHandler<LoginRequest, string>>();
 
-            //services.AddDbContext<ApplicationContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
             services.AddAutoMapper(typeof(Startup));

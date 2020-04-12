@@ -56,3 +56,11 @@
 /Users/alexis/Cityton/Cityton.Api/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.dll
 /Users/alexis/Cityton/Cityton.Api/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.pdb
 /Users/alexis/Cityton/Cityton.Api/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.genruntimeconfig.cache
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.csprojAssemblyReference.cache
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.csproj.CoreCompileInputs.cache
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.AssemblyInfoInputs.cache
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.AssemblyInfo.cs
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.dll
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.pdb

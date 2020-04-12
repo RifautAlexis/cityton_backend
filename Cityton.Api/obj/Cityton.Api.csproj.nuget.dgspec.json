@@ -14,7 +14,7 @@
         "outputPath": "/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/alexis/.config/NuGet/NuGet.Config"
+          "/Users/alexis/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

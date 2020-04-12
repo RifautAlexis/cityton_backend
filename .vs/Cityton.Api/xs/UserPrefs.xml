@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{59B8AC89-5C86-45D2-88FF-FCB1E829EC68}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/Data/ApplicationDBContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/Startup.cs">
     <Files>
       <File FileName="Cityton.Api/Data/ApplicationDBContext.cs" Line="3" Column="32" />
+      <File FileName="Cityton.Api/Startup.cs" Line="46" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,12 +11,11 @@
             <Node name="Cityton.Api" expanded="True">
               <Node name="Contracts" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True">
-                <Node name="ApplicationDBContext.cs" selected="True" />
-              </Node>
+              <Node name="Data" expanded="True" />
               <Node name="Handlers" expanded="True">
                 <Node name="Authentication" expanded="True" />
               </Node>
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
