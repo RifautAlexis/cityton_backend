@@ -5,11 +5,10 @@ using Cityton.Api.Requests.Authentication;
 namespace Cityton.Api.Handlers.Authentication
 {
 
-    public class LoginHandler<TRequest, TResult> : IHandler<TRequest, TResult>
-        where TRequest : LoginRequest
+    public class LoginHandler : IHandler<LoginRequest, string>
     {
 
-        public Task<TResult> Handle(TRequest request)
+        public Task<string> Handle(LoginRequest request)
         {
             return Task.FromResult(request.loginDTO.Email + " " + request.loginDTO.Password);
         }
