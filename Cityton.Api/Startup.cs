@@ -24,6 +24,7 @@ using Cityton.Api.Handlers;
 using Cityton.Api.Requests.Authentication;
 using Cityton.Api.DTOs;
 using Cityton.Api.Handlers.Authentication;
+using Cityton.Api.Data;
 
 namespace Cityton.Api
 {
@@ -41,7 +42,7 @@ namespace Cityton.Api
         {
             services.AddScoped<
                 IHandler<LoginRequest, string>,
-                LoginHandler<LoginRequest, string>>();
+                LoginHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;

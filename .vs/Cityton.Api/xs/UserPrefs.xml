@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{59B8AC89-5C86-45D2-88FF-FCB1E829EC68}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/Handlers/Authentication/LoginHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/appsettings.json">
     <Files>
       <File FileName="Cityton.Api/Data/ApplicationDBContext.cs" Line="3" Column="32" />
-      <File FileName="Cityton.Api/Startup.cs" Line="51" Column="1" />
-      <File FileName="Cityton.Api/Handlers/Authentication/LoginHandler.cs" Line="8" Column="50" />
+      <File FileName="Cityton.Api/Startup.cs" Line="44" Column="46" />
+      <File FileName="Cityton.Api/Handlers/Authentication/LoginHandler.cs" Line="9" Column="6" />
+      <File FileName="Cityton.Api/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +15,9 @@
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
               <Node name="Handlers" expanded="True">
-                <Node name="Authentication" expanded="True">
-                  <Node name="LoginHandler.cs" selected="True" />
-                </Node>
+                <Node name="Authentication" expanded="True" />
               </Node>
+              <Node name="appsettings.json" selected="True" />
             </Node>
           </Node>
         </State>

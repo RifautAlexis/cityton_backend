@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3LE8daQXLJT0Ht1JsI0QrAyNsd4p64xOCisLUTkuQOpzDjxh+Txy4N5gShmTRR7YwT/6VkxCc7C8cLAnp2LADg==",
+  "dgSpecHash": "aCjHVPWArCMeBDOurSqI8hY56bV4LSokkjfdQ+qjukcnE6To0j9kwx7XqRww2HupHe4UV0QZLpy/+5666jtEjA==",
   "success": true,
   "projectFilePath": "/Users/alexis/Cityton/cityton_backend/Cityton.Api/Cityton.Api.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "/Users/alexis/.nuget/packages/microsoft.entityframeworkcore/3.1.3/microsoft.entityframeworkcore.3.1.3.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.entityframeworkcore.abstractions/3.1.3/microsoft.entityframeworkcore.abstractions.3.1.3.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.entityframeworkcore.analyzers/3.1.3/microsoft.entityframeworkcore.analyzers.3.1.3.nupkg.sha512",
+    "/Users/alexis/.nuget/packages/microsoft.entityframeworkcore.design/3.1.3/microsoft.entityframeworkcore.design.3.1.3.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.entityframeworkcore.relational/3.1.3/microsoft.entityframeworkcore.relational.3.1.3.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.extensions.caching.abstractions/3.1.3/microsoft.extensions.caching.abstractions.3.1.3.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.extensions.caching.memory/3.1.3/microsoft.extensions.caching.memory.3.1.3.nupkg.sha512",
