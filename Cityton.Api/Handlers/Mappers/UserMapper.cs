@@ -15,7 +15,7 @@ namespace Cityton.Api.Handlers.Mappers
             {
                 Username = data.Username,
                 Email = data.Email,
-                Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
+                Picture = data.Picture == null ? "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png" : data.Picture,
                 Role = Role.Member,
                 PasswordHash = null,
                 PasswordSalt = null,

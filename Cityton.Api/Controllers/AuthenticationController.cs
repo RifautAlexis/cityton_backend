@@ -12,10 +12,18 @@ namespace Cityton.Api.Controllers
     public class AuthenticationController: ControllerBase
     {
 
-        [HttpGet]
+        [HttpPost]
         [AllowAnonymous]
         [Route("login")]
         public async Task<IActionResult> Login(LoginRequest request, [FromServices] IHandler<LoginRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("signup")]
+        public async Task<IActionResult> Signup(SignupRequest request, [FromServices] IHandler<SignupRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }
