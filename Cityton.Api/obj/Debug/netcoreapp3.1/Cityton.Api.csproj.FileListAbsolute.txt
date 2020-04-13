@@ -62,8 +62,6 @@
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.MvcApplicationPartsAssemblyInfo.cache
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.AssemblyInfoInputs.cache
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.AssemblyInfo.cs
-/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.dll
-/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.pdb
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/appsettings.json
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
@@ -93,6 +91,7 @@
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.dll
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll
@@ -121,5 +120,6 @@
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.csproj.CopyComplete
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/staticwebassets/Cityton.Api.StaticWebAssets.Manifest.cache
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/staticwebassets/Cityton.Api.StaticWebAssets.xml
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.dll
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.pdb
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.genruntimeconfig.cache
-/Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll

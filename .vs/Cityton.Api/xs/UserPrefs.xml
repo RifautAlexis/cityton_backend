@@ -1,23 +1,32 @@
 ﻿<Properties StartupConfiguration="{59B8AC89-5C86-45D2-88FF-FCB1E829EC68}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/Handlers/Authentication/SignupHandler.cs">
     <Files>
-      <File FileName="Cityton.Api/Data/ApplicationDBContext.cs" Line="3" Column="32" />
-      <File FileName="Cityton.Api/Startup.cs" Line="44" Column="46" />
-      <File FileName="Cityton.Api/Handlers/Authentication/LoginHandler.cs" Line="9" Column="6" />
-      <File FileName="Cityton.Api/appsettings.json" Line="1" Column="1" />
+      <File FileName="Cityton.Api/Startup.cs" Line="48" Column="23" />
+      <File FileName="Cityton.Api/Handlers/Authentication/SignupHandler.cs" Line="61" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Cityton.Api" expanded="True">
             <Node name="Cityton.Api" expanded="True">
-              <Node name="Contracts" expanded="True" />
+              <Node name="Contracts" expanded="True">
+                <Node name="DTOs" expanded="True" />
+                <Node name="Requests" expanded="True">
+                  <Node name="Authentication" expanded="True" />
+                </Node>
+              </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
               <Node name="Handlers" expanded="True">
-                <Node name="Authentication" expanded="True" />
+                <Node name="Authentication" expanded="True">
+                  <Node name="SignupHandler.cs" selected="True" />
+                </Node>
+                <Node name="Helpers" expanded="True" />
+                <Node name="Mappers" expanded="True" />
               </Node>
-              <Node name="appsettings.json" selected="True" />
+              <Node name="Validators" expanded="True">
+                <Node name="SharedValidators" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>

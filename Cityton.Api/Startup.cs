@@ -15,14 +15,14 @@ using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Primitives;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using AutoMapper;
 using Cityton.Api.Handlers;
-using Cityton.Api.Requests.Authentication;
-using Cityton.Api.DTOs;
+using Cityton.Api.Contracts.Requests.Authentication;
+using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Handlers.Authentication;
 using Cityton.Api.Data;
 
@@ -41,8 +41,11 @@ namespace Cityton.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<
-                IHandler<LoginRequest, string>,
+                IHandler<LoginRequest, ObjectResult>,
                 LoginHandler>();
+            services.AddScoped<
+                IHandler<SignupRequest, ObjectResult>,
+                SignupHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
@@ -110,8 +113,8 @@ namespace Cityton.Api
 
             services
                 .AddControllers()
-                .ConfigureApiBehaviorOptions(options => options.SuppressInferBindingSourcesForParameters = true);
-                //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
+                .ConfigureApiBehaviorOptions(options => options.SuppressInferBindingSourcesForParameters = true)
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

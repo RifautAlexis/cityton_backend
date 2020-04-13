@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cityton.Api.Contracts.Requests.Authentication
 {
-    public class LoginRequest
+    public class SignupRequest
     {
         [FromBody]
-        public LoginDTO loginDTO { get; set; }
-
+        public SignupDTO signupDTO { get; set; }
     }
 }

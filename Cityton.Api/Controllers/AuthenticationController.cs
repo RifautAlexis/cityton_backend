@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Cityton.Api.Handlers;
-using Cityton.Api.Requests.Authentication;
+using Cityton.Api.Contracts.Requests.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,11 +15,9 @@ namespace Cityton.Api.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("login")]
-        public async Task<IActionResult> Login(LoginRequest request, [FromServices] IHandler<LoginRequest, string> handler)
+        public async Task<IActionResult> Login(LoginRequest request, [FromServices] IHandler<LoginRequest, ObjectResult> handler)
         {
-
-            var result = await handler.Handle(request);
-            return Ok(result);
+            return await handler.Handle(request);
         }
     }
 }

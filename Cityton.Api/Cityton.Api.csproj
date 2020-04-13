@@ -44,5 +44,8 @@
     <Folder Include="Data\Models\" />
     <Folder Include="Data\Mapping\" />
     <Folder Include="Data\Enum\" />
+    <Folder Include="Validators\" />
+    <Folder Include="Validators\SharedValidators\" />
+    <Folder Include="Handlers\Helpers\" />
   </ItemGroup>
 </Project>
