@@ -4,12 +4,14 @@ using Cityton.Api.Handlers;
 using Cityton.Api.Contracts.Requests.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Cityton.Api.Data;
 
 namespace Cityton.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthenticationController: ControllerBase
+    [Authorize]
+    public class AuthenticationController : ControllerBase
     {
 
         [HttpPost]
@@ -24,6 +26,13 @@ namespace Cityton.Api.Controllers
         [AllowAnonymous]
         [Route("signup")]
         public async Task<IActionResult> Signup(SignupRequest request, [FromServices] IHandler<SignupRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpGet("")]
+        public async Task<IActionResult> GetConnectedUser(GetConnectedUserRequest request, [FromServices] IHandler<GetConnectedUserRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }

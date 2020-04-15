@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
@@ -21,6 +22,22 @@ namespace Cityton.Api.Handlers.Mappers
                 PasswordSalt = null,
                 Token = null,
                 CompanyId = 1
+            };
+        }
+
+        public static UserDTO ToDTO(this User data)
+        {
+            if (data == null) return null;
+
+            return new UserDTO
+            {
+                Id = data.Id,
+                Username = data.Username,
+                Email = data.Email,
+                Picture = data.Picture,
+                Role = data.Role,
+                Token = data.Token,
+                GroupId = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroupId).FirstOrDefault(),
             };
         }
     }

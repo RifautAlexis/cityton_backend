@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using Cityton.Api.Handlers.Helpers;
+using Cityton.Api.Handlers.Mappers;
 
 namespace Cityton.Api.Handlers.Authentication
 {
@@ -31,6 +32,7 @@ namespace Cityton.Api.Handlers.Authentication
         {
 
             User user = request.signupDTO.ToUser();
+            user.ParticipantGroups = null;
 
             user.CreatePasswordHash(request.signupDTO.Password);
 
@@ -54,7 +56,7 @@ namespace Cityton.Api.Handlers.Authentication
 
             await _appDBContext.UsersInDiscussion.AddAsync(userInGeneral);
 
-            return new OkObjectResult(user.Token);
+            return new OkObjectResult(user.ToDTO());
         }
     }
 }

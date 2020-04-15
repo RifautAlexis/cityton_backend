@@ -7,6 +7,7 @@ using Cityton.Api.Data.Models;
 using Cityton.Api.Contracts.Requests.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Cityton.Api.Handlers.Mappers;
 
 namespace Cityton.Api.Handlers.Authentication
 {
@@ -25,15 +26,13 @@ namespace Cityton.Api.Handlers.Authentication
 
             (string email, string password) = request.loginDTO;
 
-            User user = await _appDBContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
-
-            Console.WriteLine(user == null);
+            User user = await _appDBContext.Users.Where(u => u.Email == email).Include(u => u.ParticipantGroups).FirstOrDefaultAsync();
 
             if (user == null) { return new NotFoundObjectResult("No user was found for this email"); }
 
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) { return new BadRequestObjectResult("Wrong password"); }
 
-            return new OkObjectResult(user.Token);
+            return new OkObjectResult(user.ToDTO());
         }
 
         /**************************************************/

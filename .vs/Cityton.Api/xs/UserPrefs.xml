@@ -1,36 +1,16 @@
 ﻿<Properties StartupConfiguration="{59B8AC89-5C86-45D2-88FF-FCB1E829EC68}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cityton.Api/Handlers/Mappers/UserMapper.cs">
-    <Files>
-      <File FileName="Cityton.Api/Startup.cs" Line="48" Column="23" />
-      <File FileName="Cityton.Api/Handlers/Authentication/SignupHandler.cs" Line="33" Column="47" />
-      <File FileName="Cityton.Api/Controllers/AuthenticationController.cs" Line="26" Column="109" />
-      <File FileName="Cityton.Api/Contracts/DTOs/SignupDTO.cs" Line="1" Column="1" />
-      <File FileName="Cityton.Api/Validators/SignupDTOValidator.cs" Line="1" Column="1" />
-      <File FileName="Cityton.Api/Handlers/Mappers/UserMapper.cs" Line="10" Column="28" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Cityton.Api" expanded="True">
             <Node name="Cityton.Api" expanded="True">
-              <Node name="Contracts" expanded="True">
-                <Node name="DTOs" expanded="True" />
-                <Node name="Requests" expanded="True">
-                  <Node name="Authentication" expanded="True" />
-                </Node>
-              </Node>
+              <Node name="Contracts" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
               <Node name="Handlers" expanded="True">
                 <Node name="Authentication" expanded="True" />
-                <Node name="Helpers" expanded="True" />
-                <Node name="Mappers" expanded="True">
-                  <Node name="UserMapper.cs" selected="True" />
-                </Node>
               </Node>
-              <Node name="Validators" expanded="True">
-                <Node name="SharedValidators" expanded="True" />
-              </Node>
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
