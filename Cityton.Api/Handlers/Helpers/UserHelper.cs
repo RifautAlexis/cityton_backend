@@ -9,7 +9,7 @@ namespace Cityton.Api.Handlers.Helpers
 {
     public static class UserHelper
     {
-        public static void CreatePasswordHash(this User user, string password)
+        public static void CreatePassword(this User user, string password)
         {
             if (password == null) throw new ArgumentNullException("password");
 
@@ -23,15 +23,36 @@ namespace Cityton.Api.Handlers.Helpers
                 passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
 
-            user.PasswordSalt = passwordSalt;
             user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
 
+        }
+
+        public static bool VerifyPassword(this User user, string password)
+        {
+            if (password == null) throw new ArgumentNullException("password");
+
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+
+            if (user.PasswordHash.Length != 64) throw new ArgumentException("Invalid length of password hash (64 bytes expected).", "passwordHash");
+
+            if (user.PasswordSalt.Length != 128) throw new ArgumentException("Invalid length of password salt (128 bytes expected).", "passwordHash");
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(user.PasswordSalt))
+            {
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != user.PasswordHash[i]) return false;
+                }
+            }
+
+            return true;
         }
 
         public static string CreateToken(this User user, string tokenSecret)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-
             var key = Encoding.ASCII.GetBytes(tokenSecret);
 
             var tokenDescriptor = new SecurityTokenDescriptor

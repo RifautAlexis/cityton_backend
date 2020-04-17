@@ -34,7 +34,7 @@ namespace Cityton.Api.Handlers.Authentication
             User user = request.signupDTO.ToUser();
             user.ParticipantGroups = null;
 
-            user.CreatePasswordHash(request.signupDTO.Password);
+            user.CreatePassword(request.signupDTO.Password);
 
             string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
             user.CreateToken(tokenSecret);

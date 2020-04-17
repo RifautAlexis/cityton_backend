@@ -22,7 +22,7 @@ using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using AutoMapper;
 using Cityton.Api.Handlers;
 using Cityton.Api.Contracts.Requests.Authentication;
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.Requests.User;
 using Cityton.Api.Handlers.Authentication;
 using Cityton.Api.Data;
 using Microsoft.AspNetCore.Http;
@@ -38,7 +38,6 @@ namespace Cityton.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -52,6 +51,9 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<GetConnectedUserRequest, ObjectResult>,
                 GetConnectedUserHandler>();
+            services.AddScoped<
+                IHandler<ChangePasswordRequest, ObjectResult>,
+                ChangePasswordHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
