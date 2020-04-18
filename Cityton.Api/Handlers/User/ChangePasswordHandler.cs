@@ -25,8 +25,6 @@ namespace Cityton.Api.Handlers.Authentication
 
         public async Task<ObjectResult> Handle(ChangePasswordRequest request)
         {
-            System.Console.WriteLine(request.changePasswordDTO.OldPassword);
-            System.Console.WriteLine(request.changePasswordDTO.NewPassword);
             (string oldPassword, string newPassword) = request.changePasswordDTO;
 
             int currentUserId = int.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value);

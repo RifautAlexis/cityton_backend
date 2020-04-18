@@ -21,5 +21,13 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpGet]
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [Route("getProfile/{id}")]
+        public async Task<IActionResult> GetProfile(GetProfileRequest request, [FromServices] IHandler<GetProfileRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }

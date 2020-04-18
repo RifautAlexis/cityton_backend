@@ -54,6 +54,9 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<ChangePasswordRequest, ObjectResult>,
                 ChangePasswordHandler>();
+            services.AddScoped<
+                IHandler<GetProfileRequest, ObjectResult>,
+                GetProfileHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
