@@ -7,7 +7,6 @@ namespace Cityton.Api.Data.Models
     {
         public string Statement { get; set; }
         public string Name { get; set; }
-        public Status Status { get; set; } = Status.Waiting;
         public DateTime CreatedAt { get; set; }
 
         /*****/

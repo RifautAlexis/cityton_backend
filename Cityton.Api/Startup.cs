@@ -23,6 +23,7 @@ using AutoMapper;
 using Cityton.Api.Handlers;
 using Cityton.Api.Contracts.Requests.Authentication;
 using Cityton.Api.Contracts.Requests.User;
+using Cityton.Api.Contracts.Requests.Challenge;
 using Cityton.Api.Handlers.Authentication;
 using Cityton.Api.Data;
 using Microsoft.AspNetCore.Http;
@@ -57,6 +58,9 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<GetProfileRequest, ObjectResult>,
                 GetProfileHandler>();
+            services.AddScoped<
+                IHandler<SearchRequest, ObjectResult>,
+                SearchHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
