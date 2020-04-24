@@ -13,7 +13,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using Cityton.Api.Handlers.Helpers;
-using Cityton.Api.Handlers.Mappers;
 
 namespace Cityton.Api.Handlers.Authentication
 {
