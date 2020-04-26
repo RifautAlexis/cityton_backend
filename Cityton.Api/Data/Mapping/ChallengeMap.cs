@@ -12,7 +12,7 @@ namespace Cityton.Api.Data.Mapping
             entityBuilder.HasKey(c => c.Id);
             entityBuilder.Property(c => c.Statement).IsRequired();
             entityBuilder.HasIndex(c => c.Statement).IsUnique();
-            entityBuilder.Property(c => c.Name).IsRequired();
+            entityBuilder.Property(c => c.Title).IsRequired();
             entityBuilder.Property(c => c.CreatedAt).IsRequired();
 
             /*****/

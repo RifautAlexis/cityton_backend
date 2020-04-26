@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using Cityton.Api.Validators.SharedValidators;
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.DTOs.Authentication;
 
-namespace Cityton.Api.Validators
+namespace Cityton.Api.Contracts.Validators.Authentication
 {
     public class LoginDTOValidator : AbstractValidator<LoginDTO>
     {

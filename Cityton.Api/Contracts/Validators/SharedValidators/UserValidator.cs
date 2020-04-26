@@ -22,7 +22,7 @@ namespace Cityton.Api.Validators.SharedValidators
         {
             return rule
                 .NotEmpty()
-                .MinimumLength(3);
+                .MinimumLength(3).WithMessage("Require at least 3 characters !");
         }
     }
 }

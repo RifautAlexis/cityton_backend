@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cityton.Api.Contracts.Requests.User;
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.DTOs.User;
 
 namespace Cityton.Api.Handlers.Authentication
 {

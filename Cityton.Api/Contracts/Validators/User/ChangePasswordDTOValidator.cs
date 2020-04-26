@@ -1,8 +1,7 @@
 using FluentValidation;
-using Cityton.Api.Validators.SharedValidators;
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.DTOs.User;
 
-namespace Cityton.Api.Validators
+namespace Cityton.Api.Contracts.Validators.User
 {
     public class ChangePasswordDTOValidator : AbstractValidator<ChangePasswordDTO>
     {

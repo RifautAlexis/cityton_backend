@@ -1,4 +1,4 @@
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.DTOs.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cityton.Api.Contracts.Requests.User

@@ -1,5 +1,5 @@
 using System;
-namespace Cityton.Api.Contracts.DTOs
+namespace Cityton.Api.Contracts.DTOs.User
 {
     public class ChangePasswordDTO
     {

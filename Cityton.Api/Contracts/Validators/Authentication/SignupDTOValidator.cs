@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using Cityton.Api.Validators.SharedValidators;
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.DTOs.Authentication;
 using Cityton.Api.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Cityton.Api.Validators
+namespace Cityton.Api.Contracts.Validators.Authentication
 {
     public class SignupDTOValidator : AbstractValidator<SignupDTO>
     {
@@ -16,20 +16,16 @@ namespace Cityton.Api.Validators
         {
             _appDBContext = appDBContext;
 
-            validator();
-        }
-
-        private void validator()
-        {
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
             RuleFor(user => user.Username)
                 .UsernameValidation()
-                .MustAsync(async (username, cancellation) => !(await this.ExistUsername(username)));
+                .MustAsync(async (username, cancellation) => !(await this.ExistUsername(username))).WithMessage("This username already exist");
             RuleFor(user => user.Email)
                 .EmailValidation()
-                .MustAsync(async (email, cancellation) => !(await this.ExistEmail(email)));
-            RuleFor(user => user.Password).PasswordValidation();
+                .MustAsync(async (email, cancellation) => !(await this.ExistEmail(email))).WithMessage("This email already exist");
+            RuleFor(user => user.Password)
+                .PasswordValidation();
         }
 
         private async Task<bool> ExistUsername(string username)

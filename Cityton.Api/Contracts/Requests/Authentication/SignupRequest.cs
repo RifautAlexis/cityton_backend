@@ -1,4 +1,4 @@
-﻿using Cityton.Api.Contracts.DTOs;
+﻿using Cityton.Api.Contracts.DTOs.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cityton.Api.Contracts.Requests.Authentication

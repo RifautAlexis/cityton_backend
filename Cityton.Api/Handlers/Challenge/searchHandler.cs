@@ -6,7 +6,7 @@ using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cityton.Api.Contracts.Requests.Challenge;
-using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.DTOs.Challenge;
 using System.Collections.Generic;
 using Cityton.Api.Handlers.Mappers;
 
@@ -26,7 +26,7 @@ namespace Cityton.Api.Handlers.Authentication
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
             
             List<Challenge> challenges = await _appDBContext.Challenges
-                .Where(c => (string.IsNullOrEmpty(request.searchText) || c.Name.Contains(request.searchText, comparison) || c.Statement.Contains(request.searchText, comparison) && (request.date == null || c.CreatedAt >= request.date)))
+                .Where(c => (string.IsNullOrEmpty(request.searchText) || c.Title.Contains(request.searchText, comparison) || c.Statement.Contains(request.searchText, comparison) && (request.date == null || c.CreatedAt >= request.date)))
                 .OrderByDescending(c => c.CreatedAt).Include(c => c.Achievements)
                 .ToListAsync();
 

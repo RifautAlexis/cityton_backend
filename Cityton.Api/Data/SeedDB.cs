@@ -135,19 +135,19 @@ namespace Cityton.Api.Data
             );
 
             modelBuilder.Entity<Challenge>().HasData(
-                new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Name = "Chien trop chou", CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
-                new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Name = "Début d'un amour", CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
-                new Challenge { Id = 3, Statement = "Faire une vidéo devant l'Atomium", Name = "Ô belles boules", CreatedAt = new DateTime(2019, 01, 02), AuthorId = 6 },
-                new Challenge { Id = 4, Statement = "Faire une photo sur la grande place", Name = "Grande mais petite", CreatedAt = new DateTime(2019, 01, 03), AuthorId = 25 },
-                new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Name = "Bonne et bien chaude", CreatedAt = new DateTime(2019, 01, 04), AuthorId = 14 },
-                new Challenge { Id = 6, Statement = "Faire une photo avec un chat", Name = "Chat trop chou", CreatedAt = new DateTime(2020, 01, 02), AuthorId = 16 },
-                new Challenge { Id = 7, Statement = "Faire une photo devant la statue XXX", Name = "Ô belle statue", CreatedAt = new DateTime(2020, 07, 14), AuthorId = 38 },
-                new Challenge { Id = 8, Statement = "Faire une vidéo devant le monument XXX", Name = "Toi que l'on ne connait pas", CreatedAt = new DateTime(2019, 09, 25), AuthorId = 40 },
-                new Challenge { Id = 9, Statement = "Faire une photo avec des touristes", Name = "De nouveaux amis !", CreatedAt = new DateTime(2019, 04, 03), AuthorId = 31 },
-                new Challenge { Id = 10, Statement = "Faire une photo en sautant", Name = "Jump ! Jump ! Jump !", CreatedAt = new DateTime(2020, 01, 30), AuthorId = 31 },
-                new Challenge { Id = 11, Statement = "Faire une photo Avec un inconnu en lui faisant un bisou", Name = "Belle inconnu", CreatedAt = new DateTime(2019, 08, 23), AuthorId = null },
-                new Challenge { Id = 12, Statement = "Faire une photo sur la place XXX", Name = "Ho une place ! Photo, photo !", CreatedAt = new DateTime(2019, 07, 13), AuthorId = null },
-                new Challenge { Id = 13, Statement = "Faire une photo dans un photo bombing", Name = "Inception", CreatedAt = new DateTime(2020, 01, 09), AuthorId = null }
+                new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Title = "Chien trop chou", CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
+                new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Title = "Début d'un amour", CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
+                new Challenge { Id = 3, Statement = "Faire une vidéo devant l'Atomium", Title = "Ô belles boules", CreatedAt = new DateTime(2019, 01, 02), AuthorId = 6 },
+                new Challenge { Id = 4, Statement = "Faire une photo sur la grande place", Title = "Grande mais petite", CreatedAt = new DateTime(2019, 01, 03), AuthorId = 25 },
+                new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Title = "Bonne et bien chaude", CreatedAt = new DateTime(2019, 01, 04), AuthorId = 14 },
+                new Challenge { Id = 6, Statement = "Faire une photo avec un chat", Title = "Chat trop chou", CreatedAt = new DateTime(2020, 01, 02), AuthorId = 16 },
+                new Challenge { Id = 7, Statement = "Faire une photo devant la statue XXX", Title = "Ô belle statue", CreatedAt = new DateTime(2020, 07, 14), AuthorId = 38 },
+                new Challenge { Id = 8, Statement = "Faire une vidéo devant le monument XXX", Title = "Toi que l'on ne connait pas", CreatedAt = new DateTime(2019, 09, 25), AuthorId = 40 },
+                new Challenge { Id = 9, Statement = "Faire une photo avec des touristes", Title = "De nouveaux amis !", CreatedAt = new DateTime(2019, 04, 03), AuthorId = 31 },
+                new Challenge { Id = 10, Statement = "Faire une photo en sautant", Title = "Jump ! Jump ! Jump !", CreatedAt = new DateTime(2020, 01, 30), AuthorId = 31 },
+                new Challenge { Id = 11, Statement = "Faire une photo Avec un inconnu en lui faisant un bisou", Title = "Belle inconnu", CreatedAt = new DateTime(2019, 08, 23), AuthorId = null },
+                new Challenge { Id = 12, Statement = "Faire une photo sur la place XXX", Title = "Ho une place ! Photo, photo !", CreatedAt = new DateTime(2019, 07, 13), AuthorId = null },
+                new Challenge { Id = 13, Statement = "Faire une photo dans un photo bombing", Title = "Inception", CreatedAt = new DateTime(2020, 01, 09), AuthorId = null }
             );
 
             modelBuilder.Entity<Achievement>().HasData(

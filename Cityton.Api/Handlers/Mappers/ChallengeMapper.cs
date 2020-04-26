@@ -1,7 +1,5 @@
-using System;
 using System.Linq;
-using Cityton.Api.Contracts.DTOs;
-using Cityton.Api.Data;
+using Cityton.Api.Contracts.DTOs.Challenge;
 using Cityton.Api.Data.Models;
 
 namespace Cityton.Api.Handlers.Mappers
@@ -16,7 +14,7 @@ namespace Cityton.Api.Handlers.Mappers
             {
                 Id = data.Id,
                 Statement = data.Statement,
-                Name = data.Name,
+                Title = data.Title,
                 CreatedAt = data.CreatedAt,
                 SuccesRate = (data.Achievements.Count() / totalUsers) * 100
             };

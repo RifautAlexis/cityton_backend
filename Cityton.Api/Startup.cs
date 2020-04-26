@@ -27,6 +27,9 @@ using Cityton.Api.Contracts.Requests.Challenge;
 using Cityton.Api.Handlers.Authentication;
 using Cityton.Api.Data;
 using Microsoft.AspNetCore.Http;
+using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Contracts.Validators;
+using FluentValidation;
 
 namespace Cityton.Api
 {
@@ -61,9 +64,15 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<SearchRequest, ObjectResult>,
                 SearchHandler>();
+            services.AddScoped<
+                IHandler<CreateRequest, ObjectResult>,
+                CreateHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
+
+            services
+                .AddControllers()
+                .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddAutoMapper(typeof(Startup));
 
@@ -120,11 +129,18 @@ namespace Cityton.Api
 
             services.AddSignalR();
 
-
             services
                 .AddControllers()
                 .ConfigureApiBehaviorOptions(options => options.SuppressInferBindingSourcesForParameters = true)
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+            // must first setup FV
+            // services
+            //     .AddMvc()
+            //     .AddFluentValidation(fv => { });
+
+            // // can then manually register validators
+            // services.AddTransient<IValidator<SignupDTO>, SignupDTOValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

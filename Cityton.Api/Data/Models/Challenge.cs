@@ -5,8 +5,8 @@ namespace Cityton.Api.Data.Models
 {
     public class Challenge : BaseEntities
     {
+        public string Title { get; set; }
         public string Statement { get; set; }
-        public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
 
         /*****/
