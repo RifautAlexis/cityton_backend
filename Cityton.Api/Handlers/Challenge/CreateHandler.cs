@@ -35,6 +35,7 @@ namespace Cityton.Api.Handlers.Authentication
             };
 
             await _appDBContext.Challenges.AddAsync(challenge);
+            await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(true);
         }

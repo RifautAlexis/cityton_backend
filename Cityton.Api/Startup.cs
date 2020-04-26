@@ -67,6 +67,12 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<CreateRequest, ObjectResult>,
                 CreateHandler>();
+            services.AddScoped<
+                IHandler<UpdateRequest, ObjectResult>,
+                UpdateHandler>();
+            services.AddScoped<
+                IHandler<DeleteRequest, ObjectResult>,
+                DeleteHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

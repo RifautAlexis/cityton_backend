@@ -25,5 +25,19 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpPost("edit")]
+        [Authorized(Role.Admin)]
+        public async Task<IActionResult> Edit(UpdateRequest request, [FromServices] IHandler<UpdateRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpDelete("delete/{id}")]
+        [Authorized(Role.Admin)]
+        public async Task<IActionResult> Delete(DeleteRequest request, [FromServices] IHandler<DeleteRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }
