@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cityton.Api.Contracts.Requests.User;
 using Cityton.Api.Contracts.DTOs.User;
+using Cityton.Api.Handlers.Mappers;
 
 namespace Cityton.Api.Handlers.Authentication
 {
@@ -25,15 +26,7 @@ namespace Cityton.Api.Handlers.Authentication
 
             if (user == null) { return new NotFoundObjectResult("No user found"); }
 
-            UserProfileDTO userProfile = new UserProfileDTO
-            {
-                Id = user.Id,
-                Username = user.Username,
-                Email = user.Email,
-                Picture = user.Picture,
-                Role = user.Role,
-                GroupName = user.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroup.Name).FirstOrDefault(),
-            };
+            UserProfileDTO userProfile = user.ToUserProfile();
 
             return new OkObjectResult(userProfile);
         }

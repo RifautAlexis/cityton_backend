@@ -40,5 +40,20 @@ namespace Cityton.Api.Handlers.Mappers
                 GroupId = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroupId).FirstOrDefault(),
             };
         }
+
+        public static UserProfileDTO ToUserProfile(this User data)
+        {
+            if (data == null) return null;
+
+            return new UserProfileDTO
+            {
+                Id = data.Id,
+                Username = data.Username,
+                Email = data.Email,
+                Picture = data.Picture,
+                Role = data.Role,
+                GroupName = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroup.Name).FirstOrDefault(),
+            };
+        }
     }
 }

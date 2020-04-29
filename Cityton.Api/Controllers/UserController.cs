@@ -29,5 +29,20 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpGet]
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [Route("search")]
+        public async Task<IActionResult> GetProfile(SearchUserRequest request, [FromServices] IHandler<SearchUserRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpDelete("delete/{id}")]
+        [Authorized(Role.Admin)]
+        public async Task<IActionResult> Delete(DeleteUserRequest request, [FromServices] IHandler<DeleteUserRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }
