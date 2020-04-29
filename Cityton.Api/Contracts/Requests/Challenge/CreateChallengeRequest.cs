@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cityton.Api.Contracts.Requests.Challenge
 {
-    public class CreateRequest
+    public class CreateChallengeRequest
     {
         [FromBody]
         public CreateDTO challengeCreateDTO { get; set; }

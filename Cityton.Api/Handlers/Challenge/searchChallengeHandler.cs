@@ -12,21 +12,21 @@ using Cityton.Api.Handlers.Mappers;
 
 namespace Cityton.Api.Handlers.Authentication
 {
-    public class SearchHandler : IHandler<SearchRequest, ObjectResult>
+    public class SearchChallengeHandler : IHandler<SearchChallengeRequest, ObjectResult>
     {
         private readonly ApplicationDBContext _appDBContext;
 
-        public SearchHandler(ApplicationDBContext appDBContext)
+        public SearchChallengeHandler(ApplicationDBContext appDBContext)
         {
             _appDBContext = appDBContext;
         }
 
-        public async Task<ObjectResult> Handle(SearchRequest request)
+        public async Task<ObjectResult> Handle(SearchChallengeRequest request)
         {
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
             
             List<Challenge> challenges = await _appDBContext.Challenges
-                .Where(c => (string.IsNullOrEmpty(request.searchText) || c.Title.Contains(request.searchText, comparison) || c.Statement.Contains(request.searchText, comparison) && (request.date == null || c.CreatedAt >= request.date)))
+                .Where(c => (string.IsNullOrEmpty(request.SearchText) || c.Title.Contains(request.SearchText, comparison) || c.Statement.Contains(request.SearchText, comparison) && (request.Date == null || c.CreatedAt >= request.Date)))
                 .OrderByDescending(c => c.CreatedAt).Include(c => c.Achievements)
                 .ToListAsync();
 

@@ -3,13 +3,13 @@ using System;
 
 namespace Cityton.Api.Contracts.Requests.Challenge
 {
-    public class SearchRequest
+    public class SearchChallengeRequest
     {
         [FromQuery]
-        public string searchText { get; set; }
+        public string SearchText { get; set; }
 
         [FromQuery]
-        public DateTime? date { get; set; }
+        public DateTime? Date { get; set; }
 
     }
 }

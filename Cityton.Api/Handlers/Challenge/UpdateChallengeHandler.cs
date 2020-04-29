@@ -10,18 +10,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cityton.Api.Handlers.Authentication
 {
-    public class UpdateHandler : IHandler<UpdateRequest, ObjectResult>
+    public class UpdateChallengeHandler : IHandler<UpdateChallengeRequest, ObjectResult>
     {
         private readonly ApplicationDBContext _appDBContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UpdateHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor)
+        public UpdateChallengeHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor)
         {
             _appDBContext = appDBContext;
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<ObjectResult> Handle(UpdateRequest request)
+        public async Task<ObjectResult> Handle(UpdateChallengeRequest request)
         {
             (int challengeId, string title, string statement) = request.challengeUpdateDTO;
             Challenge challenge = await _appDBContext.Challenges.Where(c => c.Id == challengeId).FirstOrDefaultAsync();

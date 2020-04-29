@@ -14,28 +14,28 @@ namespace Cityton.Api.Controllers
     {
         [HttpGet("search")]
         [Authorized(Role.Admin)]
-        public async Task<IActionResult> Search(SearchRequest request, [FromServices] IHandler<SearchRequest, ObjectResult> handler)
+        public async Task<IActionResult> Search(SearchChallengeRequest request, [FromServices] IHandler<SearchChallengeRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }
 
         [HttpPost("add")]
         [Authorized(Role.Admin)]
-        public async Task<IActionResult> Add(CreateRequest request, [FromServices] IHandler<CreateRequest, ObjectResult> handler)
+        public async Task<IActionResult> Add(CreateChallengeRequest request, [FromServices] IHandler<CreateChallengeRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }
 
         [HttpPost("edit")]
         [Authorized(Role.Admin)]
-        public async Task<IActionResult> Edit(UpdateRequest request, [FromServices] IHandler<UpdateRequest, ObjectResult> handler)
+        public async Task<IActionResult> Edit(UpdateChallengeRequest request, [FromServices] IHandler<UpdateChallengeRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }
 
         [HttpDelete("delete/{id}")]
         [Authorized(Role.Admin)]
-        public async Task<IActionResult> Delete(DeleteRequest request, [FromServices] IHandler<DeleteRequest, ObjectResult> handler)
+        public async Task<IActionResult> Delete(DeleteChallengeRequest request, [FromServices] IHandler<DeleteChallengeRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }

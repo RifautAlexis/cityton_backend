@@ -62,17 +62,23 @@ namespace Cityton.Api
                 IHandler<GetProfileRequest, ObjectResult>,
                 GetProfileHandler>();
             services.AddScoped<
-                IHandler<SearchRequest, ObjectResult>,
-                SearchHandler>();
+                IHandler<SearchChallengeRequest, ObjectResult>,
+                SearchChallengeHandler>();
             services.AddScoped<
-                IHandler<CreateRequest, ObjectResult>,
-                CreateHandler>();
+                IHandler<CreateChallengeRequest, ObjectResult>,
+                CreateChallengeHandler>();
             services.AddScoped<
-                IHandler<UpdateRequest, ObjectResult>,
-                UpdateHandler>();
+                IHandler<UpdateChallengeRequest, ObjectResult>,
+                UpdateChallengeHandler>();
             services.AddScoped<
-                IHandler<DeleteRequest, ObjectResult>,
-                DeleteHandler>();
+                IHandler<DeleteChallengeRequest, ObjectResult>,
+                DeleteChallengeHandler>();
+            services.AddScoped<
+                IHandler<SearchUserRequest, ObjectResult>,
+                SearchUserHandler>();
+            services.AddScoped<
+                IHandler<DeleteUserRequest, ObjectResult>,
+                DeleteUserHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

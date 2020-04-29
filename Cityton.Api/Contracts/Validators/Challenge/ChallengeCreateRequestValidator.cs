@@ -4,7 +4,7 @@ using Cityton.Api.Contracts.Requests.Challenge;
 
 namespace Cityton.Api.Contracts.Validators.Challenge
 {
-    public class ChallengeCreateRequestValidator : AbstractValidator<CreateRequest>
+    public class ChallengeCreateRequestValidator : AbstractValidator<CreateChallengeRequest>
     {
         private readonly ApplicationDBContext _appDBContext;
 

@@ -9,18 +9,18 @@ using System.Security.Claims;
 
 namespace Cityton.Api.Handlers.Authentication
 {
-    public class CreateHandler : IHandler<CreateRequest, ObjectResult>
+    public class CreateChallengeHandler : IHandler<CreateChallengeRequest, ObjectResult>
     {
         private readonly ApplicationDBContext _appDBContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CreateHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor)
+        public CreateChallengeHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor)
         {
             _appDBContext = appDBContext;
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<ObjectResult> Handle(CreateRequest request)
+        public async Task<ObjectResult> Handle(CreateChallengeRequest request)
         {
             (string title, string statement) = request.challengeCreateDTO;
             int currentUserId = int.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value);
