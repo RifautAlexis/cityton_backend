@@ -1,20 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "aCjHVPWArCMeBDOurSqI8hY56bV4LSokkjfdQ+qjukcnE6To0j9kwx7XqRww2HupHe4UV0QZLpy/+5666jtEjA==",
+  "dgSpecHash": "b09gEdN3Jfzus0VqDpGyxYuA6Auqn0CX3iRxPkCI59X0pYlmIlydy9vcqqirYjxD9RpDJNuq1L6vW0Xu62quYA==",
   "success": true,
   "projectFilePath": "/Users/alexis/Cityton/cityton_backend/Cityton.Api/Cityton.Api.csproj",
   "expectedPackageFiles": [
     "/Users/alexis/.nuget/packages/automapper/9.0.0/automapper.9.0.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/automapper.collection/6.0.0/automapper.collection.6.0.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/automapper.collection.entityframeworkcore/1.0.1/automapper.collection.entityframeworkcore.1.0.1.nupkg.sha512",
-    "/Users/alexis/.nuget/packages/automapper.ef6/2.0.0/automapper.ef6.2.0.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/automapper.extensions.expressionmapping/3.1.0/automapper.extensions.expressionmapping.3.1.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/7.0.0/automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation/8.6.2/fluentvalidation.8.6.2.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation.aspnetcore/8.6.2/fluentvalidation.aspnetcore.8.6.2.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.6.2/fluentvalidation.dependencyinjectionextensions.8.6.2.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation.validatorattribute/8.6.1/fluentvalidation.validatorattribute.8.6.1.nupkg.sha512",
-    "/Users/alexis/.nuget/packages/fluentvalidation.webapi/8.6.1/fluentvalidation.webapi.8.6.1.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.3/microsoft.aspnetcore.authentication.jwtbearer.3.1.3.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.aspnetcore.authorization/2.2.0/microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/microsoft.aspnetcore.connections.abstractions/3.1.3/microsoft.aspnetcore.connections.abstractions.3.1.3.nupkg.sha512",
@@ -71,26 +69,5 @@
     "/Users/alexis/.nuget/packages/system.threading.channels/4.5.0/system.threading.channels.4.5.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'AutoMapper.EF6 2.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "AutoMapper.EF6",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'FluentValidation.WebApi 8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "FluentValidation.WebApi",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

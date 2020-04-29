@@ -41,15 +41,6 @@
           "lib/netstandard2.0/AutoMapper.Collection.EntityFrameworkCore.dll": {}
         }
       },
-      "AutoMapper.EF6/2.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net461/AutoMapper.EF6.dll": {}
-        },
-        "runtime": {
-          "lib/net461/AutoMapper.EF6.dll": {}
-        }
-      },
       "AutoMapper.Extensions.ExpressionMapping/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -126,15 +117,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/FluentValidation.ValidatorAttribute.dll": {}
-        }
-      },
-      "FluentValidation.WebApi/8.6.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/FluentValidation.WebApi.dll": {}
-        },
-        "runtime": {
-          "lib/net45/FluentValidation.WebApi.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.3": {
@@ -844,18 +826,6 @@
         "lib/netstandard2.0/AutoMapper.Collection.EntityFrameworkCore.dll"
       ]
     },
-    "AutoMapper.EF6/2.0.0": {
-      "sha512": "9YbMrsp6aqovnnI3Hs8ho4vqqV5cIinjFEv9BJeRhncrIexMGjW7ySmLJ50fSHY9KPqzlG33+JAISfcKpPBG8g==",
-      "type": "package",
-      "path": "automapper.ef6/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "automapper.ef6.2.0.0.nupkg.sha512",
-        "automapper.ef6.nuspec",
-        "lib/net461/AutoMapper.EF6.dll"
-      ]
-    },
     "AutoMapper.Extensions.ExpressionMapping/3.1.0": {
       "sha512": "BxvD5jLRfTp7N59GML5buIN/BvCegOJxLaQ8rOAAloHN8WK/AoLLt1IeI6Ft7oBTXVZejeL3WvNift1hUhhCfQ==",
       "type": "package",
@@ -945,19 +915,6 @@
         "lib/net45/FluentValidation.ValidatorAttribute.dll",
         "lib/netstandard1.1/FluentValidation.ValidatorAttribute.dll",
         "lib/netstandard2.0/FluentValidation.ValidatorAttribute.dll"
-      ]
-    },
-    "FluentValidation.WebApi/8.6.1": {
-      "sha512": "O1aitkXUl6wOFNT4I1dPo7xEtgSCfnje/Jmcws0WXrvJ8ElvpGrobKkEBOZzqLYD7S3QWxZ8f+SdyrlWMOZlXA==",
-      "type": "package",
-      "path": "fluentvalidation.webapi/8.6.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluentvalidation.webapi.8.6.1.nupkg.sha512",
-        "fluentvalidation.webapi.nuspec",
-        "lib/net45/FluentValidation.WebApi.dll",
-        "lib/net45/FluentValidation.WebApi.xml"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.3": {
@@ -2483,14 +2440,12 @@
       "AutoMapper >= 9.0.0",
       "AutoMapper.Collection >= 6.0.0",
       "AutoMapper.Collection.EntityFrameworkCore >= 1.0.1",
-      "AutoMapper.EF6 >= 2.0.0",
       "AutoMapper.Extensions.ExpressionMapping >= 3.1.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 7.0.0",
       "FluentValidation >= 8.6.2",
       "FluentValidation.AspNetCore >= 8.6.2",
       "FluentValidation.DependencyInjectionExtensions >= 8.6.2",
       "FluentValidation.ValidatorAttribute >= 8.6.1",
-      "FluentValidation.WebApi >= 8.6.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.3",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.3",
       "Microsoft.AspNetCore.SignalR.Common >= 3.1.3",
@@ -2518,7 +2473,7 @@
       "outputPath": "/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/alexis/.config/NuGet/NuGet.Config"
+        "/Users/alexis/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -2552,10 +2507,6 @@
             "target": "Package",
             "version": "[1.0.1, )"
           },
-          "AutoMapper.EF6": {
-            "target": "Package",
-            "version": "[2.0.0, )"
-          },
           "AutoMapper.Extensions.ExpressionMapping": {
             "target": "Package",
             "version": "[3.1.0, )"
@@ -2577,10 +2528,6 @@
             "version": "[8.6.2, )"
           },
           "FluentValidation.ValidatorAttribute": {
-            "target": "Package",
-            "version": "[8.6.1, )"
-          },
-          "FluentValidation.WebApi": {
             "target": "Package",
             "version": "[8.6.1, )"
           },
@@ -2656,27 +2603,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'AutoMapper.EF6 2.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "AutoMapper.EF6",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'FluentValidation.WebApi 8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "FluentValidation.WebApi",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

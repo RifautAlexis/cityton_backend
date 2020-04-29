@@ -5,10 +5,7 @@ using Cityton.Api.Contracts.Requests.Authentication;
 namespace Cityton.Api.Contracts.Validators.Authentication
 {
     public class SignupRequestValidator : AbstractValidator<SignupRequest>
-    {
-        private readonly ApplicationDBContext _appDBContext;
-
-        public SignupRequestValidator(ApplicationDBContext appDBContext)
+    {        public SignupRequestValidator(ApplicationDBContext appDBContext)
         {
             CascadeMode = CascadeMode.StopOnFirstFailure;
             

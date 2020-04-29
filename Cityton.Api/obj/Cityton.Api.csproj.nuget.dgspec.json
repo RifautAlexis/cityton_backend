@@ -14,7 +14,7 @@
         "outputPath": "/Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/alexis/.config/NuGet/NuGet.Config"
+          "/Users/alexis/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -48,10 +48,6 @@
               "target": "Package",
               "version": "[1.0.1, )"
             },
-            "AutoMapper.EF6": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
             "AutoMapper.Extensions.ExpressionMapping": {
               "target": "Package",
               "version": "[3.1.0, )"
@@ -73,10 +69,6 @@
               "version": "[8.6.2, )"
             },
             "FluentValidation.ValidatorAttribute": {
-              "target": "Package",
-              "version": "[8.6.1, )"
-            },
-            "FluentValidation.WebApi": {
               "target": "Package",
               "version": "[8.6.1, )"
             },

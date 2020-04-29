@@ -6,8 +6,6 @@ namespace Cityton.Api.Contracts.Validators.Challenge
 {
     public class ChallengeCreateRequestValidator : AbstractValidator<CreateChallengeRequest>
     {
-        private readonly ApplicationDBContext _appDBContext;
-
         public ChallengeCreateRequestValidator(ApplicationDBContext appDBContext)
         {
             CascadeMode = CascadeMode.StopOnFirstFailure;
