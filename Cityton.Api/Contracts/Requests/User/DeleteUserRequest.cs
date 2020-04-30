@@ -1,4 +1,4 @@
-namespace Cityton.Api.Contracts.Requests.User
+namespace Cityton.Api.Contracts.Requests
 {
     public class DeleteUserRequest : DefaultKeyedRequest { }
 }

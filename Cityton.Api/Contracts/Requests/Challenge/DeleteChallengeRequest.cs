@@ -1,4 +1,4 @@
-namespace Cityton.Api.Contracts.Requests.Challenge
+namespace Cityton.Api.Contracts.Requests
 {
     public class DeleteChallengeRequest : DefaultKeyedRequest { }
 }

@@ -7,10 +7,10 @@ using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Cityton.Api.Contracts.Requests.User;
+using Cityton.Api.Contracts.Requests;
 using Cityton.Api.Handlers.Helpers;
 
-namespace Cityton.Api.Handlers.Authentication
+namespace Cityton.Api.Handlers
 {
     public class ChangePasswordHandler : IHandler<ChangePasswordRequest, ObjectResult>
     {

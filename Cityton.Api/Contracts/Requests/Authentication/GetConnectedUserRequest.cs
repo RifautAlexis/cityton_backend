@@ -1,4 +1,4 @@
-﻿namespace Cityton.Api.Contracts.Requests.Authentication
+﻿namespace Cityton.Api.Contracts.Requests
 {
     public class GetConnectedUserRequest
     {

@@ -1,7 +1,7 @@
-﻿using Cityton.Api.Contracts.DTOs.Authentication;
+﻿using Cityton.Api.Contracts.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cityton.Api.Contracts.Requests.Authentication
+namespace Cityton.Api.Contracts.Requests
 {
     public class SignupRequest
     {

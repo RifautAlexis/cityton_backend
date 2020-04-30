@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Data;
 
-namespace Cityton.Api.Contracts.Requests.User
+namespace Cityton.Api.Contracts.Requests
 {
     public class SearchUserRequest
     {

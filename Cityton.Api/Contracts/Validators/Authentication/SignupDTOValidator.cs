@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using Cityton.Api.Validators.SharedValidators;
-using Cityton.Api.Contracts.DTOs.Authentication;
+using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Cityton.Api.Contracts.Validators.Authentication
+namespace Cityton.Api.Contracts.Validators
 {
     public class SignupDTOValidator : AbstractValidator<SignupDTO>
     {

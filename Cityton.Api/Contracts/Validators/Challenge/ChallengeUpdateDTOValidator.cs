@@ -1,11 +1,11 @@
 using FluentValidation;
-using Cityton.Api.Contracts.DTOs.Challenge;
+using Cityton.Api.Contracts.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Cityton.Api.Data;
 using System.Linq;
 
-namespace Cityton.Api.Contracts.Validators.Challenge
+namespace Cityton.Api.Contracts.Validators
 {
     public class challengeUpdateDTOValidator : AbstractValidator<UpdateDTO>
     {

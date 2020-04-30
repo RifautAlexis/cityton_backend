@@ -4,14 +4,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
-using Cityton.Api.Contracts.Requests.Authentication;
+using Cityton.Api.Contracts.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cityton.Api.Handlers.Mappers;
 using Cityton.Api.Handlers.Helpers;
 using Microsoft.Extensions.Configuration;
 
-namespace Cityton.Api.Handlers.Authentication
+namespace Cityton.Api.Handlers
 {
 
     public class LoginHandler : IHandler<LoginRequest, ObjectResult>

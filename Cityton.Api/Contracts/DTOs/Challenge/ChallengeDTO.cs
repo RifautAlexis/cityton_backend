@@ -1,6 +1,6 @@
 using System;
 
-namespace Cityton.Api.Contracts.DTOs.Challenge
+namespace Cityton.Api.Contracts.DTOs
 {
     public class ChallengeDTO
     {

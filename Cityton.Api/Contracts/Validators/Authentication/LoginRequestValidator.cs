@@ -1,7 +1,7 @@
 using FluentValidation;
-using Cityton.Api.Contracts.Requests.Authentication;
+using Cityton.Api.Contracts.Requests;
 
-namespace Cityton.Api.Contracts.Validators.Authentication
+namespace Cityton.Api.Contracts.Validators
 {
     public class LoginRequestValidator : AbstractValidator<LoginRequest>
     {

@@ -8,9 +8,9 @@ using Cityton.Api.Handlers.Mappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Cityton.Api.Contracts.Requests.Authentication;
+using Cityton.Api.Contracts.Requests;
 
-namespace Cityton.Api.Handlers.Authentication
+namespace Cityton.Api.Handlers
 {
     public class GetConnectedUserHandler : IHandler<GetConnectedUserRequest, ObjectResult>
     {

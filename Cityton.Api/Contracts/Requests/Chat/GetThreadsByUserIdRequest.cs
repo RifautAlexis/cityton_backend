@@ -3,5 +3,5 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cityton.Api.Contracts.Requests
 {
-    public class GetProfileRequest : DefaultKeyedRequest { }
+    public class GetThreadsByUserIdRequest : DefaultKeyedRequest { }
 }

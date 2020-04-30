@@ -20,15 +20,10 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Primitives;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using AutoMapper;
+using Cityton.Api.Contracts.Requests;
 using Cityton.Api.Handlers;
-using Cityton.Api.Contracts.Requests.Authentication;
-using Cityton.Api.Contracts.Requests.User;
-using Cityton.Api.Contracts.Requests.Challenge;
-using Cityton.Api.Handlers.Authentication;
 using Cityton.Api.Data;
 using Microsoft.AspNetCore.Http;
-using Cityton.Api.Contracts.DTOs;
-using Cityton.Api.Contracts.Validators;
 using FluentValidation;
 
 namespace Cityton.Api
@@ -79,6 +74,9 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<DeleteUserRequest, ObjectResult>,
                 DeleteUserHandler>();
+            services.AddScoped<
+                IHandler<GetThreadsByUserIdRequest, ObjectResult>,
+                GetThreadsByUserIdHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

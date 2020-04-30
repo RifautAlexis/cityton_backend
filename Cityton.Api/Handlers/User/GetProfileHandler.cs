@@ -5,11 +5,11 @@ using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Cityton.Api.Contracts.Requests.User;
-using Cityton.Api.Contracts.DTOs.User;
+using Cityton.Api.Contracts.Requests;
+using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Handlers.Mappers;
 
-namespace Cityton.Api.Handlers.Authentication
+namespace Cityton.Api.Handlers
 {
     public class GetProfileHandler : IHandler<GetProfileRequest, ObjectResult>
     {

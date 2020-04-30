@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Cityton.Api.Handlers;
-using Cityton.Api.Contracts.Requests.User;
+using Cityton.Api.Contracts.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Data;

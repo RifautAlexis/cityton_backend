@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace Cityton.Api.Contracts.Requests.Challenge
+namespace Cityton.Api.Contracts.Requests
 {
     public class SearchChallengeRequest
     {

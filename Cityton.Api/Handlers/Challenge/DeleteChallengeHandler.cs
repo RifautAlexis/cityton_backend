@@ -2,11 +2,11 @@ using System.Threading.Tasks;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using Cityton.Api.Contracts.Requests.Challenge;
+using Cityton.Api.Contracts.Requests;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cityton.Api.Handlers.Authentication
+namespace Cityton.Api.Handlers
 {
     public class DeleteChallengeHandler : IHandler<DeleteChallengeRequest, ObjectResult>
     {

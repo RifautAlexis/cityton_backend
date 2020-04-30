@@ -5,12 +5,12 @@ using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Cityton.Api.Contracts.Requests.Challenge;
-using Cityton.Api.Contracts.DTOs.Challenge;
+using Cityton.Api.Contracts.Requests;
+using Cityton.Api.Contracts.DTOs;
 using System.Collections.Generic;
 using Cityton.Api.Handlers.Mappers;
 
-namespace Cityton.Api.Handlers.Authentication
+namespace Cityton.Api.Handlers
 {
     public class SearchChallengeHandler : IHandler<SearchChallengeRequest, ObjectResult>
     {

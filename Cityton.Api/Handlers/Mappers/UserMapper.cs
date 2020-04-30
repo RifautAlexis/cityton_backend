@@ -1,6 +1,5 @@
 ﻿using System.Linq;
-using Cityton.Api.Contracts.DTOs.User;
-using Cityton.Api.Contracts.DTOs.Authentication;
+using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
 

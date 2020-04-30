@@ -1,4 +1,4 @@
-﻿namespace Cityton.Api.Contracts.DTOs.Authentication
+﻿namespace Cityton.Api.Contracts.DTOs
 {
     public class SignupDTO
     {

@@ -1,8 +1,8 @@
 using FluentValidation;
 using Cityton.Api.Data;
-using Cityton.Api.Contracts.Requests.Authentication;
+using Cityton.Api.Contracts.Requests;
 
-namespace Cityton.Api.Contracts.Validators.Authentication
+namespace Cityton.Api.Contracts.Validators
 {
     public class SignupRequestValidator : AbstractValidator<SignupRequest>
     {        public SignupRequestValidator(ApplicationDBContext appDBContext)

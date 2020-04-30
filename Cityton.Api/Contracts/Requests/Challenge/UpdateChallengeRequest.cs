@@ -1,7 +1,7 @@
-using Cityton.Api.Contracts.DTOs.Challenge;
+using Cityton.Api.Contracts.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cityton.Api.Contracts.Requests.Challenge
+namespace Cityton.Api.Contracts.Requests
 {
     public class UpdateChallengeRequest
     {

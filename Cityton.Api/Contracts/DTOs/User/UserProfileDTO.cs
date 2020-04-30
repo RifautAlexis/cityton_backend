@@ -1,6 +1,6 @@
 using Cityton.Api.Data;
 
-namespace Cityton.Api.Contracts.DTOs.User
+namespace Cityton.Api.Contracts.DTOs
 {
     public class UserProfileDTO
     {

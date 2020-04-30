@@ -1,12 +1,11 @@
 using System.Linq;
-using Cityton.Api.Contracts.DTOs.Challenge;
-using Cityton.Api.Data.Models;
+using Cityton.Api.Contracts.DTOs;
 
 namespace Cityton.Api.Handlers.Mappers
 {
     public static class ChallengeMapper
     {
-        public static ChallengeDTO ToDTO(this Challenge data, int totalUsers)
+        public static ChallengeDTO ToDTO(this Data.Models.Challenge data, int totalUsers)
         {
             if (data == null) return null;
 
