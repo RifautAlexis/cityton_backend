@@ -31,15 +31,15 @@ namespace Cityton.Api.Handlers
             (string email, string password) = request.loginDTO;
 
             User user = await _appDBContext.Users.Where(u => u.Email == email).Include(u => u.ParticipantGroups).FirstOrDefaultAsync();
+
+            if (user == null) { return new NotFoundObjectResult("No user was found for this email"); }
+
+            if (!user.VerifyPassword(password)) { return new BadRequestObjectResult("Wrong password"); }
             
             string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
             user.CreateToken(tokenSecret);
 
             await _appDBContext.SaveChangesAsync();
-
-            if (user == null) { return new NotFoundObjectResult("No user was found for this email"); }
-
-            if (!user.VerifyPassword(password)) { return new BadRequestObjectResult("Wrong password"); }
 
             return new OkObjectResult(user.ToDTO());
         }

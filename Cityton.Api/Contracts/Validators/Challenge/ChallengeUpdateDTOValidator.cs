@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Cityton.Api.Contracts.Validators
 {
-    public class challengeUpdateDTOValidator : AbstractValidator<UpdateDTO>
+    public class challengeUpdateDTOValidator : AbstractValidator<UpdateChallengeDTO>
     {
         private readonly ApplicationDBContext _appDBContext;
 

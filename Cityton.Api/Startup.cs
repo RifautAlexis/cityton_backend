@@ -25,6 +25,8 @@ using Cityton.Api.Handlers;
 using Cityton.Api.Data;
 using Microsoft.AspNetCore.Http;
 using FluentValidation;
+using Cityton.Api.Hubs;
+using Cityton.Api.Contracts.DTOs;
 
 namespace Cityton.Api
 {
@@ -77,6 +79,18 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<GetThreadsByUserIdRequest, ObjectResult>,
                 GetThreadsByUserIdHandler>();
+            services.AddScoped<
+                IHandler<GetMessagesByThreadIdRequest, ObjectResult>,
+                GetMessagesByThreadIdHandler>();
+            services.AddScoped<
+                IHandlerHub<CreateMessageDTO, ObjectResult>,
+                ReceiveMessageHandler>();
+            services.AddScoped<
+                IHandler<int, ObjectResult>,
+                RemoveMessageHandler>();
+            services.AddScoped<
+                IHandler<GetProgressionRequest, ObjectResult>,
+                GetProgressionHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -143,17 +157,8 @@ namespace Cityton.Api
                 .AddControllers()
                 .ConfigureApiBehaviorOptions(options => options.SuppressInferBindingSourcesForParameters = true)
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
-
-            // must first setup FV
-            // services
-            //     .AddMvc()
-            //     .AddFluentValidation(fv => { });
-
-            // // can then manually register validators
-            // services.AddTransient<IValidator<SignupDTO>, SignupDTOValidator>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -171,12 +176,15 @@ namespace Cityton.Api
                 .AllowAnyHeader()
                 .AllowCredentials());
 
+            app.UseWebSockets();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/hub/chatHub");
             });
         }
     }

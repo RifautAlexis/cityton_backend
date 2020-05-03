@@ -16,12 +16,6 @@ namespace Cityton.Api.Controllers
     [Authorize]
     public class AuthenticationController : ControllerBase
     {
-        private readonly ApplicationDBContext _appDBContext;
-
-        public AuthenticationController(ApplicationDBContext appDBContext)
-        {
-            _appDBContext = appDBContext;
-        }
 
         [HttpPost]
         [AllowAnonymous]
@@ -36,10 +30,6 @@ namespace Cityton.Api.Controllers
         [Route("signup")]
         public async Task<IActionResult> Signup(SignupRequest request, [FromServices] IHandler<SignupRequest, ObjectResult> handler)
         {
-            // SignupDTOValidator validator = new SignupDTOValidator(_appDBContext);
-            // ValidationResult results = await validator.ValidateAsync(request.signupDTO);
-            
-            // results.AddToModelState(ModelState, "SignupDTO");
             
             if (!ModelState.IsValid) return BadRequest(this.ModelState);
             return await handler.Handle(request);

@@ -16,7 +16,7 @@ namespace Cityton.Api.Handlers
     {
         private readonly ApplicationDBContext _appDBContext;
 
-        public GetThreadsByUserIdHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor)
+        public GetThreadsByUserIdHandler(ApplicationDBContext appDBContext)
         {
             _appDBContext = appDBContext;
         }

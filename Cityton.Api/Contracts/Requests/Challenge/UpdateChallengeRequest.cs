@@ -6,6 +6,6 @@ namespace Cityton.Api.Contracts.Requests
     public class UpdateChallengeRequest
     {
         [FromBody]
-        public UpdateDTO challengeUpdateDTO { get; set; }
+        public UpdateChallengeDTO challengeUpdateDTO { get; set; }
     }
 }

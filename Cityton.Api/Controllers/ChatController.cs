@@ -18,5 +18,12 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpGet("getMessages/{id}")]
+        [Authorized(Role.Admin, Role.Checker, Role.Member)]
+        public async Task<IActionResult> GetMessages(GetMessagesByThreadIdRequest request, [FromServices] IHandler<GetMessagesByThreadIdRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }
