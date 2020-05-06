@@ -34,15 +34,16 @@ namespace Cityton.Api.Handlers
             if (thread == null) { return new NotFoundObjectResult("No discussion with this id exists"); }
             if (thread.GroupId == null) { return new BadRequestObjectResult("This thread is not a group discussion"); }
 
-            List<ChallengeMinimalDTO> succeedChallenges = thread.Group.ChallengesGiven.Where(cg => cg.Status == StatusChallenge.Validated).Select(cg => cg.Challenge).ToList().ToChallengeMinimalDTO();
+            List<ChallengeGivenMinimalDTO> succeedChallenges = thread.Group.ChallengesGiven.Where(cg => cg.Status == StatusChallenge.Validated).ToList().ToChallengeGivenMinimalDTO();
             double totalChallenges = await _appDBContext.Challenges.CountAsync();
 
-            GroupProgressionDTO progression = new GroupProgressionDTO{
+            GroupProgressionDTO progression = new GroupProgressionDTO
+            {
                 GroupId = thread.GroupId ?? 0,
                 Progression = (succeedChallenges.Count / totalChallenges) * 100.0,
-                InProgress = thread.Group.ChallengesGiven.Where(cg => cg.Status == StatusChallenge.InProgress).Select(cg => cg.Challenge).ToList().ToChallengeMinimalDTO(),
+                InProgress = thread.Group.ChallengesGiven.Where(cg => cg.Status == StatusChallenge.InProgress).ToList().ToChallengeGivenMinimalDTO(),
                 Succeed = succeedChallenges,
-                Failed = thread.Group.ChallengesGiven.Where(cg => cg.Status == StatusChallenge.Rejected).Select(cg => cg.Challenge).ToList().ToChallengeMinimalDTO(),
+                Failed = thread.Group.ChallengesGiven.Where(cg => cg.Status == StatusChallenge.Rejected).ToList().ToChallengeGivenMinimalDTO(),
             };
 
             return new OkObjectResult(progression);

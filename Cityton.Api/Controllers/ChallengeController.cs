@@ -39,5 +39,26 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpPut("validate/{id}")]
+        [Authorized(Role.Admin, Role.Checker)]
+        public async Task<IActionResult> Validate(ValidateChallengeRequest request, [FromServices] IHandler<ValidateChallengeRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpPut("reject/{id}")]
+        [Authorized(Role.Admin, Role.Checker)]
+        public async Task<IActionResult> Reject(RejectChallengeRequest request, [FromServices] IHandler<RejectChallengeRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpPut("undo/{id}")]
+        [Authorized(Role.Admin, Role.Checker)]
+        public async Task<IActionResult> Undo(UndoChallengeRequest request, [FromServices] IHandler<UndoChallengeRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }

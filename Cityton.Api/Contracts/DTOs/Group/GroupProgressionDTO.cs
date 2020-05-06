@@ -7,9 +7,9 @@ namespace Cityton.Api.Contracts.DTOs
 
         public int GroupId { get; set; }
         public double Progression { get; set; }
-        public List<ChallengeMinimalDTO> InProgress { get; set; }
-        public List<ChallengeMinimalDTO> Succeed { get; set; }
-        public List<ChallengeMinimalDTO> Failed { get; set; }
+        public List<ChallengeGivenMinimalDTO> InProgress { get; set; }
+        public List<ChallengeGivenMinimalDTO> Succeed { get; set; }
+        public List<ChallengeGivenMinimalDTO> Failed { get; set; }
 
     }
 

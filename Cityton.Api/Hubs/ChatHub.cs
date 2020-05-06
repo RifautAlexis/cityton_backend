@@ -89,10 +89,8 @@ namespace Cityton.Api.Hubs
 
         public async Task NewMessage(CreateMessageDTO request)
         {
-            Console.WriteLine("!!!!! NEWMESSAGE !!!!!");
             if (!usersConnectedToChat.TryGetValue(Context.ConnectionId, out int connectedUserId))
             {
-                Console.WriteLine("!!!!! 01 !!!!!");
                 Context.Abort();
             }
 
@@ -100,7 +98,6 @@ namespace Cityton.Api.Hubs
             {
                 using (var scope = _serviceProvider.CreateScope())
                 {
-                    Console.WriteLine("!!!!! 02 !!!!!");
                     var handler = scope.ServiceProvider.GetService<IHandlerHub<CreateMessageDTO, ObjectResult>>();
                     var objectResult = await handler.Handle(request, connectedUserId);
                     MessageDTO messageAdded = (MessageDTO)objectResult.Value;
@@ -108,10 +105,8 @@ namespace Cityton.Api.Hubs
                     await Clients.Group(messageAdded.DiscussionId.ToString()).SendAsync("messageReceived", messageAdded);
                 }
             }
-            Console.WriteLine("!!!!! 03 !!!!!");
 
         }
-        // }
 
         /* ****************************** */
 

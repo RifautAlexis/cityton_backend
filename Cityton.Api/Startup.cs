@@ -91,6 +91,15 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<GetProgressionRequest, ObjectResult>,
                 GetProgressionHandler>();
+            services.AddScoped<
+                IHandler<ValidateChallengeRequest, ObjectResult>,
+                ValidateChallengeHandler>();
+            services.AddScoped<
+                IHandler<RejectChallengeRequest, ObjectResult>,
+                RejectChallengeHandler>();
+            services.AddScoped<
+                IHandler<UndoChallengeRequest, ObjectResult>,
+                UndoChallengeHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
