@@ -21,4 +21,11 @@ namespace Cityton.Api.Data
         Checker = 1,
         Admin = 2
     }
+    
+    public enum FilterGroup
+    {
+        All = 0,
+        Full = 1,
+        NotFull = 2
+    }
 }

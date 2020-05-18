@@ -2,6 +2,7 @@
 using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
+using System.Collections.Generic;
 
 namespace Cityton.Api.Handlers.Mappers
 {
@@ -53,6 +54,22 @@ namespace Cityton.Api.Handlers.Mappers
                 Role = data.Role,
                 GroupName = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroup.Name).FirstOrDefault(),
             };
+        }
+
+        public static UserMinimalDTO ToUserMinimalDTO(this User data)
+        {
+            if (data == null) return null;
+
+            return new UserMinimalDTO
+            {
+                Id = data.Id,
+                Username = data.Username
+            };
+        }
+
+        public static List<UserMinimalDTO> ToUserMinimalDTO(this List<User> data)
+        {
+            return data.Select(d => d.ToUserMinimalDTO()).ToList();
         }
     }
 }

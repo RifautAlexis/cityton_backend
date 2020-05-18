@@ -17,7 +17,7 @@ namespace Cityton.Api.Handlers.Mappers
                 Id = data.Id,
                 Content = data.Content == null ? null : data.Content,
                 Media = data.Media == null ? null : new MediaDTO { Id = data.Media.Id, Url = data.Media.Location, CreatedAt = data.Media.CreatedAt },
-                Author = new UserMinimalDTO { Id = data.AuthorId, Username = data.AuthorId == null ? "" : data.Author.Username },
+                Author = new UserMinimalDTO { Id = data.AuthorId, Username = data.AuthorId == null ? "Account removed" : data.Author.Username },
                 CreatedAt = data.CreatedAt,
                 DiscussionId = data.DiscussionId,
             };

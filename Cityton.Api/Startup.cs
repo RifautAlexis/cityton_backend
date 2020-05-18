@@ -100,6 +100,29 @@ namespace Cityton.Api
             services.AddScoped<
                 IHandler<UndoChallengeRequest, ObjectResult>,
                 UndoChallengeHandler>();
+            services.AddScoped<
+                IHandler<CreateGroupRequest, ObjectResult>,
+                CreateGroupHandler>();
+            services.AddScoped<
+                IHandler<DeleteGroupRequest, ObjectResult>,
+                DeleteGroupHandler>();
+            services.AddScoped<
+                IHandler<GetGroupInfoRequest, ObjectResult>,
+                GetGroupInfoHandler>();
+            services.AddScoped<
+                IHandler<SearchGroupRequest, ObjectResult>,
+                SearchGroupHandler>();
+            services.AddScoped<IHandler<DeleteGroupRequestRequest, ObjectResult>,
+                DeleteGroupRequestHandler>();
+            services.AddScoped<
+                IHandler<DeleteGroupMembershipRequest, ObjectResult>,
+                DeleteGroupMembershipHandler>();
+            services.AddScoped<IHandler<AcceptGroupRequestRequest, ObjectResult>,
+                AcceptGroupRequestHandler>();
+            services.AddScoped<IHandler<EditGroupNameRequest, ObjectResult>,
+                EditGroupNameHandler>();
+            services.AddScoped<IHandler<CreateGroupRequestRequest, ObjectResult>,
+                CreateGroupRequestHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

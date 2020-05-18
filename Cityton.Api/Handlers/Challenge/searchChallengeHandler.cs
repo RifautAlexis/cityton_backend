@@ -26,7 +26,7 @@ namespace Cityton.Api.Handlers
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
             
             List<Challenge> challenges = await _appDBContext.Challenges
-                .Where(c => (string.IsNullOrEmpty(request.SearchText) || c.Title.Contains(request.SearchText, comparison) || c.Statement.Contains(request.SearchText, comparison) && (request.Date == null || c.CreatedAt >= request.Date)))
+                .Where(c => (string.IsNullOrEmpty(request.SearchText) || c.Title.Contains(request.SearchText, comparison) || c.Statement.Contains(request.SearchText, comparison)) && (request.Date == null || c.CreatedAt >= request.Date))
                 .OrderByDescending(c => c.CreatedAt).Include(c => c.Achievements)
                 .ToListAsync();
 
