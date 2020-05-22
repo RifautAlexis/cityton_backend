@@ -9,7 +9,6 @@ namespace Cityton.Api.Handlers.Mappers
 {
     public static class GroupMapper
     {
-
         public static GroupDTO ToDTO(this Group data, int maxGroupSize)
         {
             if (data == null) return null;
@@ -28,6 +27,23 @@ namespace Cityton.Api.Handlers.Mappers
         public static List<GroupDTO> ToDTO(this List<Group> data, int maxGroupSize)
         {
             return data.Select(d => d.ToDTO(maxGroupSize)).ToList();
+        }
+
+        public static GroupMinimalDTO ToGroupMinimalDTO(this Group data, int maxGroupSize)
+        {
+            if (data == null) return null;
+
+            return new GroupMinimalDTO
+            {
+                Id = data.Id,
+                Name = data.Name,
+                HasReachMaxSize = data.Members.Count == maxGroupSize,
+            };
+        }
+
+        public static List<GroupMinimalDTO> ToGroupMinimalDTO(this List<Group> data, int maxGroupSize)
+        {
+            return data.Select(d => d.ToGroupMinimalDTO(maxGroupSize)).ToList();
         }
     }
 }

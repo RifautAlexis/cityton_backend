@@ -36,15 +36,17 @@ namespace Cityton.Api.Handlers
 
             if (selectedFilter != FilterGroup.All)
             {
-                int groupMaxSize = await _appDBContext.Companies.Where(c => c.Id == 1).Select(c => c.MaxGroupSize).FirstOrDefaultAsync();
+                (int groupMaxSize, int groupMinSize) = await _appDBContext.Companies.Where(c => c.Id == 1).FirstOrDefaultAsync();
 
                 if (selectedFilter == FilterGroup.Full)
                 {
                     groups = groups.Where(g => g.Members.Count == groupMaxSize).ToList();
                 }
-                else
+                else if (selectedFilter == FilterGroup.NotFull)
                 {
                     groups = groups.Where(g => g.Members.Count < groupMaxSize).ToList();
+                } else {
+                    groups = groups.Where(g => g.Members.Count < groupMinSize).ToList();
                 }
             }
 
@@ -53,7 +55,7 @@ namespace Cityton.Api.Handlers
                 .Select(c => c.MaxGroupSize)
                 .FirstOrDefaultAsync();
 
-            List<GroupDTO> groupsDTO = groups.Select(g => g.ToDTO(maxGroupSize)).ToList();
+            List<GroupMinimalDTO> groupsDTO = groups.ToGroupMinimalDTO(maxGroupSize);
 
             return new OkObjectResult(groupsDTO);
         }

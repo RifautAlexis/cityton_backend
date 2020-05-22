@@ -26,6 +26,8 @@ namespace Cityton.Api.Data
     {
         All = 0,
         Full = 1,
-        NotFull = 2
+        NotFull = 2,
+        InferiorToMinSize = 3
+
     }
 }

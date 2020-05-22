@@ -15,5 +15,12 @@ namespace Cityton.Api.Data.Models
 
         public virtual ICollection<User> Users { get; set; }
 
+        /*****/
+
+        internal void Deconstruct(out int minGroupSize, out int maxGroupSize)
+        {
+            minGroupSize = MinGroupSize;
+            maxGroupSize = MaxGroupSize;
+        }
     }
 }
