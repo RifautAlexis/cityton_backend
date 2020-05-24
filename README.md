@@ -8,8 +8,8 @@ Using SingalR for a live chat application
 
 
 # To do
-- Manage media via a tier to stock them
-- Rework code (improvement)
+- [ ] Manage media via a tier to stock them
+- [ ] Rework code (improvement)
 
 # To do bonus
 - Stripe
