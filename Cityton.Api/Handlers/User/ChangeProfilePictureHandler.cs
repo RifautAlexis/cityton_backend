@@ -28,11 +28,6 @@ namespace Cityton.Api.Handlers
 
         public async Task<ObjectResult> Handle(ChangeProfilePictureRequest request)
         {
-            System.Console.WriteLine("!!!!! HANDLER !!!!!");
-            System.Console.WriteLine(request == null);
-            System.Console.WriteLine(request.File == null);
-            System.Console.WriteLine(request.File);
-
             int currentUserId = int.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value);
 
             Account account = new Account(
@@ -56,8 +51,6 @@ namespace Cityton.Api.Handlers
             user.Picture = uploadResult.SecureUri.AbsoluteUri;
 
             await _appDBContext.SaveChangesAsync();
-
-            System.Console.WriteLine("!!!!! END HANDLER !!!!!");
 
             return new OkObjectResult(true);
         }
