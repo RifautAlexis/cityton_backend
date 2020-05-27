@@ -1693,7 +1693,7 @@ namespace Cityton.Api.Migrations
                             Email = "member15@gmail.com",
                             PasswordHash = new byte[] { 87, 235, 67, 208, 156, 10, 33, 9, 125, 154, 17, 74, 24, 255, 197, 44, 128, 238, 192, 26, 105, 135, 49, 111, 34, 57, 211, 41, 42, 88, 139, 89, 132, 253, 211, 15, 233, 45, 219, 128, 166, 95, 84, 47, 254, 66, 5, 248, 58, 255, 194, 255, 113, 93, 251, 110, 60, 71, 242, 86, 9, 38, 28, 99 },
                             PasswordSalt = new byte[] { 10, 243, 129, 141, 26, 36, 202, 189, 176, 111, 14, 75, 189, 219, 92, 12, 155, 73, 56, 246, 207, 34, 112, 47, 2, 66, 22, 205, 91, 220, 32, 240, 0, 76, 121, 26, 188, 145, 182, 214, 155, 186, 249, 205, 55, 52, 208, 109, 135, 177, 111, 74, 179, 31, 61, 16, 78, 202, 155, 196, 160, 15, 7, 7, 208, 23, 108, 58, 212, 192, 131, 246, 116, 65, 195, 3, 104, 154, 197, 149, 209, 79, 101, 69, 0, 97, 138, 67, 121, 229, 200, 110, 166, 146, 170, 255, 211, 247, 65, 59, 7, 174, 17, 184, 159, 57, 185, 156, 52, 38, 99, 73, 255, 91, 79, 59, 186, 93, 194, 35, 229, 73, 134, 165, 198, 99, 159, 8 },
-                            Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
+                            Picture = "inary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
                             Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIzIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4NzkxMzI2OSwiZXhwIjoxNTg4NTE4MDY5LCJpYXQiOjE1ODc5MTMyNjl9.qBiAvSy4qQDpqSp243QZnvsle4bpjeYsZCZi8Fzj3D8",
                             Username = "member15"
@@ -1705,7 +1705,7 @@ namespace Cityton.Api.Migrations
                             Email = "member16@gmail.com",
                             PasswordHash = new byte[] { 87, 235, 67, 208, 156, 10, 33, 9, 125, 154, 17, 74, 24, 255, 197, 44, 128, 238, 192, 26, 105, 135, 49, 111, 34, 57, 211, 41, 42, 88, 139, 89, 132, 253, 211, 15, 233, 45, 219, 128, 166, 95, 84, 47, 254, 66, 5, 248, 58, 255, 194, 255, 113, 93, 251, 110, 60, 71, 242, 86, 9, 38, 28, 99 },
                             PasswordSalt = new byte[] { 10, 243, 129, 141, 26, 36, 202, 189, 176, 111, 14, 75, 189, 219, 92, 12, 155, 73, 56, 246, 207, 34, 112, 47, 2, 66, 22, 205, 91, 220, 32, 240, 0, 76, 121, 26, 188, 145, 182, 214, 155, 186, 249, 205, 55, 52, 208, 109, 135, 177, 111, 74, 179, 31, 61, 16, 78, 202, 155, 196, 160, 15, 7, 7, 208, 23, 108, 58, 212, 192, 131, 246, 116, 65, 195, 3, 104, 154, 197, 149, 209, 79, 101, 69, 0, 97, 138, 67, 121, 229, 200, 110, 166, 146, 170, 255, 211, 247, 65, 59, 7, 174, 17, 184, 159, 57, 185, 156, 52, 38, 99, 73, 255, 91, 79, 59, 186, 93, 194, 35, 229, 73, 134, 165, 198, 99, 159, 8 },
-                            Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
+                            Picture = "inary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
                             Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI0Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4NzkxMzI2OSwiZXhwIjoxNTg4NTE4MDY5LCJpYXQiOjE1ODc5MTMyNjl9.XLgw1R8MxlgY5Kd98x6QF7rjSYZ0azKBPxFdfJTg2Ec",
                             Username = "member16"

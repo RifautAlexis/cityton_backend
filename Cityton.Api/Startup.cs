@@ -123,6 +123,8 @@ namespace Cityton.Api
                 EditGroupNameHandler>();
             services.AddScoped<IHandler<CreateGroupRequestRequest, ObjectResult>,
                 CreateGroupRequestHandler>();
+            services.AddScoped<IHandler<ChangeProfilePictureRequest, ObjectResult>,
+                ChangeProfilePictureHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

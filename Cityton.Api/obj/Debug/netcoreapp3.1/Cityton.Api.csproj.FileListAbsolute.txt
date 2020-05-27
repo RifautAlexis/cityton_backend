@@ -121,3 +121,4 @@
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.dll
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.pdb
 /Users/alexis/Cityton/cityton_backend/Cityton.Api/obj/Debug/netcoreapp3.1/Cityton.Api.genruntimeconfig.cache
+/Users/alexis/Cityton/cityton_backend/Cityton.Api/bin/Debug/netcoreapp3.1/CloudinaryDotNet.dll

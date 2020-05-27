@@ -13,6 +13,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using Cityton.Api.Handlers.Helpers;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace Cityton.Api.Handlers
 {
@@ -29,11 +33,35 @@ namespace Cityton.Api.Handlers
 
         public async Task<ObjectResult> Handle(SignupRequest request)
         {
+            (string username, string email, string password, IFormFile profilePicture) = request;
 
-            User user = request.signupDTO.ToUser();
+            Account account = new Account(
+                this._appSettings.GetSection("Cloudinary:CloudName").Value,
+                this._appSettings.GetSection("Cloudinary:ApiKey").Value,
+                this._appSettings.GetSection("Cloudinary:ApiSecret").Value);
+
+            Cloudinary cloudinary = new Cloudinary(account);
+
+            Stream stream = profilePicture.OpenReadStream();
+
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(username, stream)
+            };
+
+            var uploadResult = cloudinary.Upload(uploadParams);
+
+            User user = new User{
+                Username = username,
+                Email = email,
+                Picture = this._appSettings.GetSection("Cloudinary:BaseUrl").Value + uploadResult.SecureUri.AbsolutePath,
+                Role = Role.Member,
+                CompanyId = 1
+            };
+
             user.ParticipantGroups = null;
 
-            user.CreatePassword(request.signupDTO.Password);
+            user.CreatePassword(password);
 
             string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
             user.CreateToken(tokenSecret);

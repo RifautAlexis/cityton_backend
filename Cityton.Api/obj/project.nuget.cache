@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b09gEdN3Jfzus0VqDpGyxYuA6Auqn0CX3iRxPkCI59X0pYlmIlydy9vcqqirYjxD9RpDJNuq1L6vW0Xu62quYA==",
+  "dgSpecHash": "9ImulBYBLfLdnTO6EHFLCSNheDZ2ay99I/JlJYdUCHQKBjfrhFo26EezqetQ/1VSNBRDltG0pmTL8amhLgJ1WA==",
   "success": true,
   "projectFilePath": "/Users/alexis/Cityton/cityton_backend/Cityton.Api/Cityton.Api.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "/Users/alexis/.nuget/packages/automapper.collection.entityframeworkcore/1.0.1/automapper.collection.entityframeworkcore.1.0.1.nupkg.sha512",
     "/Users/alexis/.nuget/packages/automapper.extensions.expressionmapping/3.1.0/automapper.extensions.expressionmapping.3.1.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/7.0.0/automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+    "/Users/alexis/.nuget/packages/cloudinarydotnet/1.10.0/cloudinarydotnet.1.10.0.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation/8.6.2/fluentvalidation.8.6.2.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation.aspnetcore/8.6.2/fluentvalidation.aspnetcore.8.6.2.nupkg.sha512",
     "/Users/alexis/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.6.2/fluentvalidation.dependencyinjectionextensions.8.6.2.nupkg.sha512",

@@ -44,5 +44,13 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpPut]
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [Route("changeProfilePicture")]
+        public async Task<IActionResult> ChangeProfilePicture(ChangeProfilePictureRequest request, [FromServices] IHandler<ChangeProfilePictureRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }
