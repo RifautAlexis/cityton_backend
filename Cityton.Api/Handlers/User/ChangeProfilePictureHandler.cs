@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cityton.Api.Contracts.Requests;
-using Cityton.Api.Handlers.Helpers;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace Cityton.Api.Handlers
 {
@@ -19,11 +19,14 @@ namespace Cityton.Api.Handlers
     {
         private readonly ApplicationDBContext _appDBContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _appSettings;
 
-        public ChangeProfilePictureHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor)
+
+        public ChangeProfilePictureHandler(ApplicationDBContext appDBContext, IHttpContextAccessor httpContextAccessor, IConfiguration config)
         {
             _appDBContext = appDBContext;
             _httpContextAccessor = httpContextAccessor;
+            _appSettings = config;
         }
 
         public async Task<ObjectResult> Handle(ChangeProfilePictureRequest request)
@@ -31,9 +34,9 @@ namespace Cityton.Api.Handlers
             int currentUserId = int.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value);
 
             Account account = new Account(
-                "dakczk6el",
-                "652331788734115",
-                "VPc2ldz94kaKQGohMOhEEd0I5jY");
+                this._appSettings.GetSection("Cloudinary:CloudName").Value,
+                this._appSettings.GetSection("Cloudinary:ApiKey").Value,
+                this._appSettings.GetSection("Cloudinary:ApiSecret").Value);
 
             Cloudinary cloudinary = new Cloudinary(account);
 
