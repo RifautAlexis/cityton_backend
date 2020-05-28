@@ -75,10 +75,13 @@ namespace Cityton.Api.Handlers
             UserInDiscussion userInGeneral = new UserInDiscussion
             {
                 JoinedAt = DateTime.Now,
-                DiscussionId = discussioGeneralId
+                DiscussionId = discussioGeneralId,
+                ParticipantId = user.Id
             };
 
             await _appDBContext.UsersInDiscussion.AddAsync(userInGeneral);
+
+            await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(user.ToDTO());
         }
