@@ -14,13 +14,13 @@ namespace Cityton.Api.Contracts.Validators
         public CreateMessageDTOValidator(ApplicationDBContext appDBContext)
         {
             _appDBContext = appDBContext;
-        
+
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
             RuleFor(cm => cm.Message)
                 .NotEmpty()
-                .When(cm => string.IsNullOrEmpty(cm.ImageUrl))
-                .WithMessage("Message and ImageUrl are null or empty");
+                .When(cm => string.IsNullOrEmpty(cm.Message) && string.IsNullOrEmpty(cm.MediaUrl))
+                .WithMessage("Message and MediaUrl are null or empty");
         }
     }
 }

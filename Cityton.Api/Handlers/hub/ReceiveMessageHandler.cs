@@ -11,6 +11,7 @@ using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Handlers.Mappers;
 using System.Collections.Generic;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace Cityton.Api.Handlers
 {
@@ -32,8 +33,13 @@ namespace Cityton.Api.Handlers
             return new OkObjectResult(messageAdded.ToDTO());
         }
 
-        private async Task<Message> NewMessage(string message, int currentUserId, int discussionId, string imageUrl)
+        private async Task<Message> NewMessage(string message, int currentUserId, int discussionId, string mediaUrl)
         {
+            System.Console.WriteLine("!!!!! NEW MESSAGE !!!!!");
+            System.Console.WriteLine(message);
+            System.Console.WriteLine(currentUserId);
+            System.Console.WriteLine(discussionId);
+            System.Console.WriteLine(mediaUrl);
             Message messageToAdd = new Message
             {
                 Content = message,
@@ -46,11 +52,12 @@ namespace Cityton.Api.Handlers
             await _appDBContext.Messages.AddAsync(messageToAdd);
             await _appDBContext.SaveChangesAsync();
 
-            if (!string.IsNullOrWhiteSpace(imageUrl))
+            if (!string.IsNullOrWhiteSpace(mediaUrl))
             {
+                System.Console.WriteLine("!!!!! ENTERED !!!!!");
                 Media mediaToAdd = new Media
                 {
-                    Location = imageUrl,
+                    Location = mediaUrl,
                     CreatedAt = DateTime.Now,
                     MessageId = messageToAdd.Id
                 };
@@ -60,12 +67,17 @@ namespace Cityton.Api.Handlers
 
                 messageToAdd.MediaId = mediaToAdd.Id;
                 await _appDBContext.SaveChangesAsync();
+                System.Console.WriteLine(mediaToAdd.Id);
+                System.Console.WriteLine(messageToAdd.MediaId);
+                System.Console.WriteLine(messageToAdd.Media.Id);
 
-                messageToAdd.Media = mediaToAdd;
+                // messageToAdd.Media = mediaToAdd;
+                System.Console.WriteLine("!!!!! END ENTERED !!!!!");
 
             }
             else
             {
+                System.Console.WriteLine("!!!!! NOT ENTERED !!!!!");
                 messageToAdd.Media = null;
             }
 

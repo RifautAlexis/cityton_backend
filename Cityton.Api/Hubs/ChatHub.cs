@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Handlers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+
 namespace Cityton.Api.Hubs
 {
     public class ChatHub : Hub
@@ -89,12 +90,15 @@ namespace Cityton.Api.Hubs
 
         public async Task NewMessage(CreateMessageDTO request)
         {
+            System.Console.WriteLine("!!!!! HUB !!!!!");
+            System.Console.WriteLine(request.MediaUrl);
+            System.Console.WriteLine("!!!!! END HUB !!!!!");
             if (!usersConnectedToChat.TryGetValue(Context.ConnectionId, out int connectedUserId))
             {
                 Context.Abort();
             }
 
-            if (string.IsNullOrWhiteSpace(request.Message) || string.IsNullOrWhiteSpace(request.ImageUrl))
+            if (!string.IsNullOrWhiteSpace(request.Message) || !string.IsNullOrWhiteSpace(request.MediaUrl))
             {
                 using (var scope = _serviceProvider.CreateScope())
                 {

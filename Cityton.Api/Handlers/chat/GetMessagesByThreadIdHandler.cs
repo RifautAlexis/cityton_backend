@@ -31,6 +31,7 @@ namespace Cityton.Api.Handlers
 
             List<Message> Messages = await _appDBContext.Messages
             .Where(m => m.DiscussionId == request.Id)
+            .Include(m => m.Media)
             .Include(m => m.Author)
             .ToListAsync();
 
