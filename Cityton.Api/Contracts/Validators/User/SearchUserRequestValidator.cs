@@ -10,7 +10,7 @@ namespace Cityton.Api.Contracts.Validators
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
             RuleFor(sur => sur.SelectedRole)
-                .NotNull().WithMessage("SelectedFilter is null")
+                // .NotNull().WithMessage("SelectedFilter is null")
                 .IsInEnum().WithMessage("Is not a Role");
         }
     }

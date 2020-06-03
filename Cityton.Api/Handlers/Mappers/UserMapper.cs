@@ -63,7 +63,8 @@ namespace Cityton.Api.Handlers.Mappers
             return new UserMinimalDTO
             {
                 Id = data.Id,
-                Username = data.Username
+                Username = data.Username,
+                ProfilePicture = data.Picture
             };
         }
 
