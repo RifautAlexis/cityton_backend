@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Cityton.Api.Handlers;
 using Cityton.Api.Contracts.Requests;

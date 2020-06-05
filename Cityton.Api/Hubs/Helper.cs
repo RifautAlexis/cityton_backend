@@ -1,10 +1,5 @@
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Cityton.Api.Hubs.Helper

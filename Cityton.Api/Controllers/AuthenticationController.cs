@@ -1,13 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Cityton.Api.Handlers;
 using Cityton.Api.Contracts.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Data;
-using Cityton.Api.Contracts.Validators;
-using FluentValidation.Results;
-using FluentValidation.AspNetCore;
 
 namespace Cityton.Api.Controllers
 {

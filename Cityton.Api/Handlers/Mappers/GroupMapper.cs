@@ -3,7 +3,6 @@ using System.Linq;
 using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
-using Cityton.Api.Contracts;
 
 namespace Cityton.Api.Handlers.Mappers
 {

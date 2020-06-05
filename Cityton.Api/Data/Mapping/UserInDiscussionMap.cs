@@ -10,11 +10,6 @@ namespace Cityton.Api.Data.Mapping
         {
             entityBuilder.HasKey(uid => uid.Id);
             entityBuilder.Property(uid => uid.JoinedAt).IsRequired();
-
-            /*****/
-
-            //entityBuilder.Ignore(uid => uid.Participant);
-            //entityBuilder.Ignore(uid => uid.Discussion);
         }
 
     }

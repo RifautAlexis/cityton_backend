@@ -1,5 +1,4 @@
-﻿using Cityton.Api.Contracts.DTOs;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
 namespace Cityton.Api.Contracts.Requests

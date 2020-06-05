@@ -19,11 +19,6 @@ namespace Cityton.Api.Data.Mapping
             entityBuilder.HasMany(g => g.Members).WithOne(pg => pg.BelongingGroup).HasForeignKey(pg => pg.BelongingGroupId);
             entityBuilder.HasMany(g => g.ChallengesGiven).WithOne(cg => cg.ChallengedGroup).HasForeignKey(cg => cg.ChallengedGroupId);
             entityBuilder.HasOne(g => g.Discussion).WithOne(d => d.Group).HasForeignKey<Discussion>(d => d.GroupId);
-
-            /*****/
-
-            //entityBuilder.Ignore(g => g.Members);
-            //entityBuilder.Ignore(g => g.ChallengesGiven);
         }
 
     }

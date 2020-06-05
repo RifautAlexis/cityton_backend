@@ -8,9 +8,6 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Cityton.Api.Contracts.DTOs;
-using System.Collections.Generic;
-using Cityton.Api.Handlers.Mappers;
 
 namespace Cityton.Api.Handlers
 {

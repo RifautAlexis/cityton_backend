@@ -1,4 +1,3 @@
-using System;
 namespace Cityton.Api.Contracts.DTOs
 {
     public class CreateChallengeDTO

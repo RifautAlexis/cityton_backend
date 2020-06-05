@@ -11,11 +11,6 @@ namespace Cityton.Api.Data.Mapping
             entityBuilder.HasKey(pg => pg.Id);
             entityBuilder.Property(pg => pg.IsCreator).IsRequired();
             entityBuilder.Property(pg => pg.Status).IsRequired();
-
-            /*****/
-
-            //entityBuilder.Ignore(pg => pg.BelongingGroup);
-            //entityBuilder.Ignore(pg => pg.User);
         }
 
     }

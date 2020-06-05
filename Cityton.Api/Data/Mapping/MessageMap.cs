@@ -15,12 +15,6 @@ namespace Cityton.Api.Data.Mapping
             /*****/
 
             entityBuilder.HasOne(mes => mes.Media).WithOne(med => med.ContainedIn).HasForeignKey<Media>(med => med.MessageId);
-
-            /*****/
-
-            //entityBuilder.Ignore(m => m.Author);
-            //entityBuilder.Ignore(m => m.Discussion);
-            //entityBuilder.Ignore(m => m.Media);
         }
 
     }

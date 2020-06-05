@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;

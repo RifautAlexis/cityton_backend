@@ -1,5 +1,4 @@
-﻿using System;
-namespace Cityton.Api.Data
+﻿namespace Cityton.Api.Data
 {
     public class BaseEntities
     {

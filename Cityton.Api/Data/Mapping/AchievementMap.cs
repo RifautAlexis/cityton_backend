@@ -9,11 +9,6 @@ namespace Cityton.Api.Data.Mapping
         {
             entityBuilder.HasKey(a => a.Id);
             entityBuilder.Property(a => a.UnlockedAt).IsRequired();
-
-            /*****/
-
-            //entityBuilder.Ignore(a => a.Winner);
-            //entityBuilder.Ignore(a => a.FromChallenge);
         }
 
     }

@@ -1,9 +1,5 @@
 using FluentValidation;
-using Cityton.Api.Contracts.DTOs;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using Cityton.Api.Data;
-using System.Linq;
 using Cityton.Api.Contracts.Requests;
 
 namespace Cityton.Api.Contracts.Validators

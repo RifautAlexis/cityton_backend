@@ -1,5 +1,4 @@
-﻿using System;
-using Cityton.Api.Data.Models;
+﻿using Cityton.Api.Data.Models;
 using Cityton.Api.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 

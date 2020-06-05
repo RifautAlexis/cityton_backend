@@ -17,11 +17,6 @@ namespace Cityton.Api.Data.Mapping
 
             entityBuilder.HasMany(d => d.UsersInDiscussion).WithOne(uid => uid.Discussion).HasForeignKey(uid => uid.DiscussionId);
             entityBuilder.HasMany(d => d.Messages).WithOne(m => m.Discussion).HasForeignKey(m => m.DiscussionId);
-
-            /*****/
-
-            //entityBuilder.Ignore(d => d.UsersInDiscussion);
-            //entityBuilder.Ignore(d => d.Messages);
         }
 
     }

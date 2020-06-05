@@ -30,15 +30,6 @@ namespace Cityton.Api.Data.Mapping
             entityBuilder.HasMany(u => u.Achievements).WithOne(a => a.Winner).HasForeignKey(a => a.WinnerId);
             entityBuilder.HasMany(u => u.UsersInDiscussion).WithOne(uid => uid.Participant).HasForeignKey(uid => uid.ParticipantId);
             entityBuilder.HasMany(u => u.MessagesWriten).WithOne(m => m.Author).HasForeignKey(m => m.AuthorId).OnDelete(DeleteBehavior.SetNull);
-
-            /*****/
-
-            //entityBuilder.Ignore(u => u.Company);
-            //entityBuilder.Ignore(u => u.ParticipantGroups);
-            //entityBuilder.Ignore(u => u.Challenges);
-            //entityBuilder.Ignore(u => u.Achievements);
-            //entityBuilder.Ignore(u => u.UsersInDiscussion);
-            //entityBuilder.Ignore(u => u.MessagesWriten);
         }
     }
 }

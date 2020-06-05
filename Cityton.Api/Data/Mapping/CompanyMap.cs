@@ -19,10 +19,6 @@ namespace Cityton.Api.Data.Mapping
             /*****/
 
             entityBuilder.HasMany(c => c.Users).WithOne(u => u.Company).HasForeignKey(u => u.CompanyId);
-
-            /*****/
-
-            //entityBuilder.Ignore(c => c.Users);
         }
 
     }

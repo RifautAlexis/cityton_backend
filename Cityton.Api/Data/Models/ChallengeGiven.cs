@@ -1,5 +1,4 @@
-﻿using System;
-namespace Cityton.Api.Data.Models
+﻿namespace Cityton.Api.Data.Models
 {
     public class ChallengeGiven : BaseEntities
     {

@@ -1,10 +1,8 @@
-using System;
 using System.Threading.Tasks;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Contracts.Requests;
-using Microsoft.AspNetCore.Http;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 

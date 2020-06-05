@@ -1,4 +1,3 @@
-using Cityton.Api.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cityton.Api.Contracts.Requests

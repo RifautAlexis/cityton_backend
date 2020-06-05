@@ -1,5 +1,3 @@
-using Cityton.Api.Data;
-
 namespace Cityton.Api.Contracts.DTOs
 {
     public class ParticipantGroupMinimalDTO
