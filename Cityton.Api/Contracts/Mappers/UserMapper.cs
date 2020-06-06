@@ -16,7 +16,7 @@ namespace Cityton.Api.Contracts.Mappers
             {
                 Username = data.Username,
                 Email = data.Email,
-                Picture = data.Picture == null ? "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png" : data.Picture,
+                Picture = data.Picture == null ? "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png" : data.Picture,
                 Role = Role.Member,
                 PasswordHash = null,
                 PasswordSalt = null,

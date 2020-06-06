@@ -359,15 +359,15 @@ namespace Cityton.Api.Data
             *   Media
             */
             modelBuilder.Entity<Media>().HasData(
-                new Media { Id = 1, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 10 },
-                new Media { Id = 2, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 11 },
-                new Media { Id = 3, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 17 },
+                new Media { Id = 1, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png", CreatedAt = DateTime.Now, MessageId = 10 },
+                new Media { Id = 2, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png", CreatedAt = DateTime.Now, MessageId = 11 },
+                new Media { Id = 3, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png", CreatedAt = DateTime.Now, MessageId = 17 },
                 new Media { Id = 4, Location = null, CreatedAt = DateTime.Now, MessageId = 19 },
-                new Media { Id = 5, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 20 },
-                new Media { Id = 6, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 21 },
+                new Media { Id = 5, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png", CreatedAt = DateTime.Now, MessageId = 20 },
+                new Media { Id = 6, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png", CreatedAt = DateTime.Now, MessageId = 21 },
 
                 new Media { Id = 7, Location = null, CreatedAt = DateTime.Now, MessageId = 27 },
-                new Media { Id = 8, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 28 },
+                new Media { Id = 8, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png", CreatedAt = DateTime.Now, MessageId = 28 },
                 new Media { Id = 9, Location = null, CreatedAt = DateTime.Now, MessageId = 29 }
             );
 

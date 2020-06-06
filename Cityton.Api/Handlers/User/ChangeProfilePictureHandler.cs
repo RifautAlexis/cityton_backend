@@ -45,7 +45,8 @@ namespace Cityton.Api.Handlers
 
             var uploadParams = new ImageUploadParams()
             {
-                File = new FileDescription(user.Username, stream)
+                File = new FileDescription(user.Username, stream),
+                PublicId = this._appSettings.GetSection("Cloudinary:ProfilePicturesFolder").Value + user.Username
             };
 
             var uploadResult = cloudinary.Upload(uploadParams);

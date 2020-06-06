@@ -9,7 +9,6 @@ namespace Cityton.Api.Data.Mapping
         {
             entityBuilder.HasKey(m => m.Id);
 
-            entityBuilder.Property(m => m.Location).IsRequired();
             entityBuilder.Property(m => m.CreatedAt).IsRequired();
         }
 
