@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
-using Cityton.Api.Handlers.Mappers;
+using Cityton.Api.Contracts.Mappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

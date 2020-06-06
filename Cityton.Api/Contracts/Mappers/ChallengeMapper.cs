@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cityton.Api.Contracts.DTOs;
 using Cityton.Api.Data.Models;
 
-namespace Cityton.Api.Handlers.Mappers
+namespace Cityton.Api.Contracts.Mappers
 {
     public static class ChallengeMapper
     {

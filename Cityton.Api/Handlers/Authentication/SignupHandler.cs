@@ -6,7 +6,7 @@ using Cityton.Api.Data.Models;
 using Cityton.Api.Contracts.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Cityton.Api.Handlers.Mappers;
+using Cityton.Api.Contracts.Mappers;
 using Microsoft.Extensions.Configuration;
 using Cityton.Api.Handlers.Helpers;
 using CloudinaryDotNet;

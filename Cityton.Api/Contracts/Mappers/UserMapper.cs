@@ -4,7 +4,7 @@ using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
 using System.Collections.Generic;
 
-namespace Cityton.Api.Handlers.Mappers
+namespace Cityton.Api.Contracts.Mappers
 {
     public static class UserMapper
     {

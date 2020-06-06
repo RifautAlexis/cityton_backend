@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cityton.Api.Contracts.Requests;
 using Cityton.Api.Contracts.DTOs;
-using Cityton.Api.Handlers.Mappers;
+using Cityton.Api.Contracts.Mappers;
 
 namespace Cityton.Api.Handlers
 {

@@ -4,7 +4,7 @@ using Cityton.Api.Data;
 using Cityton.Api.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Contracts.DTOs;
-using Cityton.Api.Handlers.Mappers;
+using Cityton.Api.Contracts.Mappers;
 
 namespace Cityton.Api.Handlers
 {
