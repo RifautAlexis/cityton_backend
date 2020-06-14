@@ -10,9 +10,9 @@ namespace Cityton.Api.Contracts.Validators
         {
             CascadeMode = CascadeMode.StopOnFirstFailure;
             
-            RuleFor(request => request.changePasswordDTO).NotNull();
-            When(request => request.changePasswordDTO != null,
-                () => { RuleFor(request => request.changePasswordDTO).SetValidator(new ChangePasswordDTOValidator()); });
+            RuleFor(request => request.ChangePasswordDTO).NotNull();
+            When(request => request.ChangePasswordDTO != null,
+                () => { RuleFor(request => request.ChangePasswordDTO).SetValidator(new ChangePasswordDTOValidator()); });
         }
     }
 }

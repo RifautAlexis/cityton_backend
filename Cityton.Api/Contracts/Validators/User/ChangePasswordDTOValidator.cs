@@ -1,5 +1,6 @@
 using FluentValidation;
 using Cityton.Api.Contracts.DTOs;
+using Cityton.Api.Validators.SharedValidators;
 
 namespace Cityton.Api.Contracts.Validators
 {
@@ -11,8 +12,7 @@ namespace Cityton.Api.Contracts.Validators
 
             RuleFor(cp => cp.OldPassword)
                 .NotEmpty().WithMessage("OldPassword is empty");
-            RuleFor(cp => cp.NewPassword)
-                .NotEmpty().WithMessage("NewPassword is empty");
+            RuleFor(cp => cp.NewPassword).PasswordValidation();
         }
     }
 }

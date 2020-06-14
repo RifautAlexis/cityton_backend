@@ -4,21 +4,22 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Cityton.Api.Data;
 using System.Linq;
+using Cityton.Api.Contracts.Validators.SharedValidators;
 
 namespace Cityton.Api.Contracts.Validators
 {
-    public class challengeUpdateDTOValidator : AbstractValidator<UpdateChallengeDTO>
+    public class ChallengeUpdateDTOValidator : AbstractValidator<UpdateChallengeDTO>
     {
         private readonly ApplicationDBContext _appDBContext;
 
-        public challengeUpdateDTOValidator(ApplicationDBContext appDBContext)
+        public ChallengeUpdateDTOValidator(ApplicationDBContext appDBContext)
         {
             _appDBContext = appDBContext;
         
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
             RuleFor(cc => cc.ChallengeId)
-                .NotEmpty().WithMessage("Id empty");
+                .SetValidator(new IdValidator());
             RuleFor(cc => cc.Title)
                 .NotEmpty().WithMessage("Title is empty")
                 .Length(3, 50).WithMessage("Have to contains between 3 to 50 characters !")

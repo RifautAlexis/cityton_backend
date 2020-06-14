@@ -9,9 +9,9 @@ namespace Cityton.Api.Contracts.Validators
         {
             CascadeMode = CascadeMode.StopOnFirstFailure;
             
-            // RuleFor(request => request.signupDTO).NotNull();
-            // When(request => request.signupDTO != null,
-            //     () => { RuleFor(request => request.signupDTO).SetValidator(new SignupDTOValidator(appDBContext)); });
+            RuleFor(request => request.SignupDTO).NotNull();
+            When(request => request.SignupDTO != null,
+                () => { RuleFor(request => request.SignupDTO).SetValidator(new SignupDTOValidator(appDBContext)); });
         }
     }
 }

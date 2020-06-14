@@ -29,7 +29,7 @@ namespace Cityton.Api.Handlers
 
         public async Task<ObjectResult> Handle(SignupRequest request)
         {
-            (string username, string email, string password, IFormFile profilePicture) = request;
+            (string username, string email, string password, IFormFile profilePicture) = request.SignupDTO;
 
             Account account = new Account(
                 this._appSettings.GetSection("Cloudinary:CloudName").Value,

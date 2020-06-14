@@ -6,6 +6,6 @@ namespace Cityton.Api.Contracts.Requests
     public class ChangePasswordRequest
     {
         [FromBody]
-        public ChangePasswordDTO changePasswordDTO { get; set; }
+        public ChangePasswordDTO ChangePasswordDTO { get; set; }
     }
 }

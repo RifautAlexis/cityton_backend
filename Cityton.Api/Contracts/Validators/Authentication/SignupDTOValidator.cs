@@ -5,6 +5,7 @@ using Cityton.Api.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Cityton.Api.Contracts.Validators.File;
 
 namespace Cityton.Api.Contracts.Validators
 {
@@ -26,6 +27,8 @@ namespace Cityton.Api.Contracts.Validators
                 .MustAsync(async (email, cancellation) => !(await this.ExistEmail(email))).WithMessage("This email already exist");
             RuleFor(user => user.Password)
                 .PasswordValidation();
+            RuleFor(user => user.ProfilePicture)
+                .SetValidator(new FileValidator());
         }
 
         private async Task<bool> ExistUsername(string username)
