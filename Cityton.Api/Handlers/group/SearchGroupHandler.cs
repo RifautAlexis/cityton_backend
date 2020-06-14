@@ -30,8 +30,9 @@ namespace Cityton.Api.Handlers
             List<Group> groups = await _appDBContext.Groups
                 .Where(g => string.IsNullOrEmpty(groupName) || g.Name.Contains(groupName, comparison))
                 .OrderByDescending(c => c.CreatedAt)
+                .Include(g => g.Supervisor)
                 .Include(g => g.Members)
-                    .ThenInclude(pg => pg.User)
+                .ThenInclude(pg => pg.User)
                 .ToListAsync();
 
             if (selectedFilter != FilterGroup.All)

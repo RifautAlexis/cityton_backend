@@ -115,6 +115,10 @@ namespace Cityton.Api
                 CreateGroupRequestHandler>();
             services.AddScoped<IHandler<ChangeProfilePictureRequest, ObjectResult>,
                 ChangeProfilePictureHandler>();
+            services.AddScoped<IHandler<GetAllStaffMemberRequest, ObjectResult>,
+                GetAllStaffMemberHandler>();
+            services.AddScoped<IHandler<AttributeSupervisorRequest, ObjectResult>,
+                AttributeSupervisorHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

@@ -25,8 +25,9 @@ namespace Cityton.Api.Handlers
             int groupId = request.Id;
             Group group = await _appDBContext.Groups
                 .Where(g => g.Id == request.Id)
+                .Include(g => g.Supervisor)
                 .Include(g => g.Members)
-                    .ThenInclude(pg => pg.User)
+                .ThenInclude(pg => pg.User)
                 .FirstOrDefaultAsync();
 
             if (group == null) { return new NotFoundObjectResult("No user found"); }

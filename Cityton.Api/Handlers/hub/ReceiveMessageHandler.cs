@@ -28,11 +28,6 @@ namespace Cityton.Api.Handlers
 
         private async Task<Message> NewMessage(string message, int currentUserId, int discussionId, string mediaUrl)
         {
-            System.Console.WriteLine("!!!!! NEW MESSAGE !!!!!");
-            System.Console.WriteLine(message);
-            System.Console.WriteLine(currentUserId);
-            System.Console.WriteLine(discussionId);
-            System.Console.WriteLine(mediaUrl);
             Message messageToAdd = new Message
             {
                 Content = message,
@@ -47,7 +42,6 @@ namespace Cityton.Api.Handlers
 
             if (!string.IsNullOrWhiteSpace(mediaUrl))
             {
-                System.Console.WriteLine("!!!!! ENTERED !!!!!");
                 Media mediaToAdd = new Media
                 {
                     Location = mediaUrl,
@@ -60,17 +54,10 @@ namespace Cityton.Api.Handlers
 
                 messageToAdd.MediaId = mediaToAdd.Id;
                 await _appDBContext.SaveChangesAsync();
-                System.Console.WriteLine(mediaToAdd.Id);
-                System.Console.WriteLine(messageToAdd.MediaId);
-                System.Console.WriteLine(messageToAdd.Media.Id);
-
-                // messageToAdd.Media = mediaToAdd;
-                System.Console.WriteLine("!!!!! END ENTERED !!!!!");
 
             }
             else
             {
-                System.Console.WriteLine("!!!!! NOT ENTERED !!!!!");
                 messageToAdd.Media = null;
             }
 

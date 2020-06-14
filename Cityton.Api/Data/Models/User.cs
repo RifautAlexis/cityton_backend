@@ -21,6 +21,7 @@ namespace Cityton.Api.Data.Models
         public virtual ICollection<Achievement> Achievements { get; set; }
         public virtual ICollection<UserInDiscussion> UsersInDiscussion { get; set; }
         public virtual ICollection<Message> MessagesWriten { get; set; }
+        public virtual ICollection<Group> GroupsSupervised { get; set; }
 
         /*****/
 

@@ -10,6 +10,7 @@ namespace Cityton.Api.Contracts.DTOs
         public List<ParticipantGroupMinimalDTO> Members { get; set; }
         public List<ParticipantGroupMinimalDTO> RequestsAdhesion { get; set; }
         public bool HasReachMaxSize { get; set; }
+        public UserMinimalDTO Supervisor { get; set; }
 
     }
 

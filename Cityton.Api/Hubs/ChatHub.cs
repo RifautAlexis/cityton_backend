@@ -83,9 +83,6 @@ namespace Cityton.Api.Hubs
 
         public async Task NewMessage(CreateMessageDTO request)
         {
-            System.Console.WriteLine("!!!!! HUB !!!!!");
-            System.Console.WriteLine(request.MediaUrl);
-            System.Console.WriteLine("!!!!! END HUB !!!!!");
             if (!usersConnectedToChat.TryGetValue(Context.ConnectionId, out int connectedUserId))
             {
                 Context.Abort();

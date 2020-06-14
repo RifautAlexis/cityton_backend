@@ -51,5 +51,13 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+
+        [HttpGet]
+        [Authorized(Role.Admin)]
+        [Route("getAllStaffMember")]
+        public async Task<IActionResult> GetAllStaffMember(GetAllStaffMemberRequest request, [FromServices] IHandler<GetAllStaffMemberRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }

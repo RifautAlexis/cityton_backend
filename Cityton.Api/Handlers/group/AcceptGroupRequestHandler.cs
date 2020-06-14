@@ -6,6 +6,7 @@ using Cityton.Api.Contracts.Requests;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System;
 
 namespace Cityton.Api.Handlers
 {
@@ -47,7 +48,16 @@ namespace Cityton.Api.Handlers
                     .ToListAsync();
 
                 _appDBContext.ParticipantGroups.RemoveRange(requestsToDelete);
+                await _appDBContext.SaveChangesAsync();
 
+                UserInDiscussion userInDiscussion = new UserInDiscussion
+                {
+                    JoinedAt = DateTime.Now,
+                    DiscussionId = membershipToUpdate.BelongingGroupId,
+                    ParticipantId = membershipToUpdate.UserId
+                };
+
+                await _appDBContext.UsersInDiscussion.AddAsync(userInDiscussion);
                 await _appDBContext.SaveChangesAsync();
 
                 return new OkObjectResult(true);

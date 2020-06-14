@@ -30,6 +30,7 @@ namespace Cityton.Api.Handlers
             {
                 Name = name,
                 CreatedAt = DateTime.Now,
+                SupervisorId = null
             };
 
             await _appDBContext.Groups.AddAsync(group);
@@ -44,6 +45,26 @@ namespace Cityton.Api.Handlers
             };
 
             await _appDBContext.ParticipantGroups.AddAsync(participantGroups);
+            await _appDBContext.SaveChangesAsync();
+
+            Discussion discussion = new Discussion
+            {
+                CreatedAt = DateTime.Now,
+                Name = name,
+                GroupId = group.Id
+            };
+
+            await _appDBContext.Discussions.AddAsync(discussion);
+            await _appDBContext.SaveChangesAsync();
+
+            UserInDiscussion userInDiscussion = new UserInDiscussion
+            {
+                JoinedAt = DateTime.Now,
+                DiscussionId = discussion.Id,
+                ParticipantId = currentUserId
+            };
+
+            await _appDBContext.UsersInDiscussion.AddAsync(userInDiscussion);
             await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(true);

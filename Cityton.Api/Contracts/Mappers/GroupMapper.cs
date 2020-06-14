@@ -20,12 +20,8 @@ namespace Cityton.Api.Contracts.Mappers
                 Members = data.Members.Where(pg => pg.IsCreator == false && pg.Status == Status.Accepted).ToList().ToParticipantGroupMinimalDTO(),
                 RequestsAdhesion = data.Members.Where(pg => pg.IsCreator == false && pg.Status == Status.Waiting).ToList().ToParticipantGroupMinimalDTO(),
                 HasReachMaxSize = data.Members.Count == maxGroupSize,
+                Supervisor = data.Supervisor == null ? null : data.Supervisor.ToUserMinimalDTO()
             };
-        }
-
-        public static List<GroupDTO> ToDTO(this List<Group> data, int maxGroupSize)
-        {
-            return data.Select(d => d.ToDTO(maxGroupSize)).ToList();
         }
 
         public static GroupMinimalDTO ToGroupMinimalDTO(this Group data, int maxGroupSize)
@@ -37,6 +33,7 @@ namespace Cityton.Api.Contracts.Mappers
                 Id = data.Id,
                 Name = data.Name,
                 HasReachMaxSize = data.Members.Count == maxGroupSize,
+                Supervisor = data.Supervisor == null ? null : data.Supervisor.ToUserMinimalDTO()
             };
         }
 

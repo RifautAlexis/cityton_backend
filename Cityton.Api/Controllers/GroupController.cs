@@ -81,5 +81,12 @@ namespace Cityton.Api.Controllers
         {
             return await handler.Handle(request);
         }
+        
+        [HttpPut("attributeSupervisor/{id}")]
+        [Authorized(Role.Admin)]
+        public async Task<IActionResult> AttributeSupervisor(AttributeSupervisorRequest request, [FromServices] IHandler<AttributeSupervisorRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
     }
 }
