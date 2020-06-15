@@ -6,6 +6,7 @@ using Cityton.Api.Contracts.Requests;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System;
 
 namespace Cityton.Api.Handlers
 {
@@ -37,10 +38,28 @@ namespace Cityton.Api.Handlers
                 _appDBContext.RemoveRange(user.GroupsSupervised);
 
                 await _appDBContext.SaveChangesAsync();
+            }
 
+            if (user.Role == Role.Member && (Role)request.RoleId != Role.Member)
+            {
+
+                int discussioStaffId = await _appDBContext.Discussions
+                .Where(d => d.Name == "staff")
+                .Select(d => d.Id)
+                .FirstOrDefaultAsync();
+
+                UserInDiscussion userInDiscussion = new UserInDiscussion
+                {
+                    JoinedAt = DateTime.Now,
+                    ParticipantId = user.Id,
+                    DiscussionId = discussioStaffId
+                };
+
+                await _appDBContext.UsersInDiscussion.AddAsync(userInDiscussion);
             }
 
             user.Role = (Role)request.RoleId;
+            await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(true);
         }

@@ -67,7 +67,7 @@ namespace Cityton.Api.Handlers
 
             await _appDBContext.SaveChangesAsync();
 
-            int discussioGeneralId = await _appDBContext.Discussions
+            int discussionGeneralId = await _appDBContext.Discussions
                 .Where(d => d.Name == "general")
                 .Select(d => d.Id)
                 .FirstOrDefaultAsync();
@@ -75,7 +75,7 @@ namespace Cityton.Api.Handlers
             UserInDiscussion userInGeneral = new UserInDiscussion
             {
                 JoinedAt = DateTime.Now,
-                DiscussionId = discussioGeneralId,
+                DiscussionId = discussionGeneralId,
                 ParticipantId = user.Id
             };
 
