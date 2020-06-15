@@ -119,6 +119,8 @@ namespace Cityton.Api
                 GetAllStaffMemberHandler>();
             services.AddScoped<IHandler<AttributeSupervisorRequest, ObjectResult>,
                 AttributeSupervisorHandler>();
+            services.AddScoped<IHandler<ChangeRoleRequest, ObjectResult>,
+                ChangeRoleRequestHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
