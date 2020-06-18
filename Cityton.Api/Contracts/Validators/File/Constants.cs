@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Cityton.Api.Contracts.Validators.File
 {
     public static class FileConstants {
-        public static readonly Dictionary<string, List<byte[]>> _fileSignature = new Dictionary<string, List<byte[]>>
+        public static readonly Dictionary<string, List<byte[]>> FileSignature = new Dictionary<string, List<byte[]>>
         {
             {
                 "image/gif", new List<byte[]>
@@ -56,12 +56,16 @@ namespace Cityton.Api.Contracts.Validators.File
             },
         };
 
-        public static readonly List<string> _contentType = new List<string>
+        public static readonly List<string> ImageContentType = new List<string>
         {
             "image/gif",
             "image/jpeg",
             "image/png",
             // "image/webp",
+        };
+
+        public static readonly List<string> VideoContentType = new List<string>
+        {
             "video/mpeg",
             "video/webm",
         };

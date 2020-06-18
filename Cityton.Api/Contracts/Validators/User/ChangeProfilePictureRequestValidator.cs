@@ -12,7 +12,8 @@ namespace Cityton.Api.Contracts.Validators
             CascadeMode = CascadeMode.StopOnFirstFailure;
             
             RuleFor(request => request.File)
-                .SetValidator(new FileValidator());
+                .NotNull().WithMessage("File is null")
+                .SetValidator(new ImageValidator());
         }
     }
 }

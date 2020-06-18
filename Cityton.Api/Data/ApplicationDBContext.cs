@@ -1,14 +1,17 @@
 ﻿using Cityton.Api.Data.Models;
 using Cityton.Api.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Cityton.Api.Data
 {
     public class ApplicationDBContext : DbContext
     {
+        private readonly IConfiguration _appSettings;
 
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options, IConfiguration config) : base(options)
         {
+            _appSettings = config;
         }
 
         public DbSet<Company> Companies { get; set; }
@@ -39,7 +42,7 @@ namespace Cityton.Api.Data
             new MessageMap(modelBuilder.Entity<Message>());
             new MediaMap(modelBuilder.Entity<Media>());
 
-            modelBuilder.Seed();
+            modelBuilder.Seed(this._appSettings);
         }
 
     }

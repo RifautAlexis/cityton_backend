@@ -6,14 +6,15 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Cityton.Api.Data.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Cityton.Api.Data
 {
     public static class SeedDB
     {
-        public static void Seed(this ModelBuilder modelBuilder)
+        public static void Seed(this ModelBuilder modelBuilder, IConfiguration config)
         {
-
+            string defaultPicture = config.GetSection("Cloudinary:DefaultPictureProfile").Value;
             modelBuilder.Entity<Company>().HasData(
                 new Company
                 {
@@ -30,54 +31,54 @@ namespace Cityton.Api.Data
             CreatePasswordHash("123", out passwordHash, out passwordSalt);
 
             List<User> users = new List<User> {
-                new User { Id = 1, Username = "admin01", Email = "admin01@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 2, Username = "admin02", Email = "admin02@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 3, Username = "admin03", Email = "admin03@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 4, Username = "admin04", Email = "admin04@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 5, Username = "admin05", Email = "admin05@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 6, Username = "checker01", Email = "checker01@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 7, Username = "checker02", Email = "checker02@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 8, Username = "checker03", Email = "checker03@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 9, Username = "member01", Email = "member01@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 10, Username = "member02", Email = "member02@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 11, Username = "member03", Email = "member03@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 12, Username = "member04", Email = "member04@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 13, Username = "member05", Email = "member05@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 14, Username = "member06", Email = "member06@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 15, Username = "member07", Email = "member07@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 16, Username = "member08", Email = "member08@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 17, Username = "member09", Email = "member09@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 18, Username = "member10", Email = "member10@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 19, Username = "member11", Email = "member11@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 20, Username = "member12", Email = "member12@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 21, Username = "member13", Email = "member13@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 22, Username = "member14", Email = "member14@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 23, Username = "member15", Email = "member15@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 24, Username = "member16", Email = "member16@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 25, Username = "member17", Email = "member17@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 26, Username = "member18", Email = "member18@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 27, Username = "member19", Email = "member19@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 28, Username = "member20", Email = "member20@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 29, Username = "member21", Email = "member21@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 30, Username = "member22", Email = "member22@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 31, Username = "member23", Email = "member23@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 32, Username = "member24", Email = "member24@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 33, Username = "member25", Email = "member25@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 34, Username = "member26", Email = "member26@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 35, Username = "member27", Email = "member27@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 36, Username = "member28", Email = "member28@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 37, Username = "member29", Email = "member29@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 38, Username = "member30", Email = "member30@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 39, Username = "member31", Email = "member31@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 40, Username = "member32", Email = "member32@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 41, Username = "member33", Email = "member33@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 42, Username = "member34", Email = "member34@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 43, Username = "member35", Email = "member35@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 44, Username = "member36", Email = "member36@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 45, Username = "member37", Email = "member37@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 46, Username = "member38", Email = "member38@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 47, Username = "member39", Email = "member39@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 48, Username = "member40", Email = "member40@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 }
+                new User { Id = 1, Username = "admin01", Email = "admin01@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 2, Username = "admin02", Email = "admin02@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 3, Username = "admin03", Email = "admin03@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 4, Username = "admin04", Email = "admin04@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 5, Username = "admin05", Email = "admin05@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 6, Username = "checker01", Email = "checker01@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 7, Username = "checker02", Email = "checker02@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 8, Username = "checker03", Email = "checker03@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 9, Username = "member01", Email = "member01@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 10, Username = "member02", Email = "member02@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 11, Username = "member03", Email = "member03@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 12, Username = "member04", Email = "member04@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 13, Username = "member05", Email = "member05@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 14, Username = "member06", Email = "member06@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 15, Username = "member07", Email = "member07@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 16, Username = "member08", Email = "member08@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 17, Username = "member09", Email = "member09@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 18, Username = "member10", Email = "member10@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 19, Username = "member11", Email = "member11@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 20, Username = "member12", Email = "member12@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 21, Username = "member13", Email = "member13@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 22, Username = "member14", Email = "member14@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 23, Username = "member15", Email = "member15@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 24, Username = "member16", Email = "member16@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 25, Username = "member17", Email = "member17@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 26, Username = "member18", Email = "member18@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 27, Username = "member19", Email = "member19@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 28, Username = "member20", Email = "member20@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 29, Username = "member21", Email = "member21@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 30, Username = "member22", Email = "member22@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 31, Username = "member23", Email = "member23@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 32, Username = "member24", Email = "member24@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 33, Username = "member25", Email = "member25@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 34, Username = "member26", Email = "member26@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 35, Username = "member27", Email = "member27@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 36, Username = "member28", Email = "member28@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 37, Username = "member29", Email = "member29@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 38, Username = "member30", Email = "member30@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 39, Username = "member31", Email = "member31@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 40, Username = "member32", Email = "member32@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 41, Username = "member33", Email = "member33@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 42, Username = "member34", Email = "member34@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 43, Username = "member35", Email = "member35@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 44, Username = "member36", Email = "member36@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 45, Username = "member37", Email = "member37@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 46, Username = "member38", Email = "member38@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 47, Username = "member39", Email = "member39@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture },
+                new User { Id = 48, Username = "member40", Email = "member40@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1, Picture = defaultPicture }
             };
 
             foreach (var user in users)

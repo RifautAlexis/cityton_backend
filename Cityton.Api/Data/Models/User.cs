@@ -7,7 +7,7 @@ namespace Cityton.Api.Data.Models
 
         public string Username { get; set; }
         public string Email { get; set; }
-        public string Picture { get; set; } = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/ProfilePictures/default.png";
+        public string Picture { get; set; }
         public Role Role { get; set; } = Role.Member;
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }

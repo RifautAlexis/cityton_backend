@@ -29,7 +29,7 @@ namespace Cityton.Api.Handlers
 
         public async Task<ObjectResult> Handle(SignupRequest request)
         {
-            (string username, string email, string password, IFormFile profilePicture) = request.SignupDTO;
+            (string username, string email, string password, IFormFile profilePicture) = request;
 
             Account account = new Account(
                 this._appSettings.GetSection("Cloudinary:CloudName").Value,
@@ -38,20 +38,26 @@ namespace Cityton.Api.Handlers
 
             Cloudinary cloudinary = new Cloudinary(account);
 
-            Stream stream = profilePicture.OpenReadStream();
-
-            var uploadParams = new ImageUploadParams()
+            string urlPicture = this._appSettings.GetSection("Cloudinary:DefaultPictureProfile").Value;
+            if (profilePicture != null)
             {
-                File = new FileDescription(username, stream),
-                PublicId = this._appSettings.GetSection("Cloudinary:ProfilePicturesFolder").Value + username
-            };
+                Stream stream = profilePicture.OpenReadStream();
 
-            var uploadResult = cloudinary.Upload(uploadParams);
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(username, stream),
+                    PublicId = this._appSettings.GetSection("Cloudinary:ProfilePicturesFolder").Value + username
+                };
 
-            User user = new User{
+                var uploadResult = cloudinary.Upload(uploadParams);
+                urlPicture = uploadResult.SecureUri.AbsolutePath;
+            }
+
+            User user = new User
+            {
                 Username = username,
                 Email = email,
-                Picture = this._appSettings.GetSection("Cloudinary:BaseUrl").Value + uploadResult.SecureUri.AbsolutePath,
+                Picture = this._appSettings.GetSection("Cloudinary:BaseUrl").Value + urlPicture,
                 Role = Role.Member,
                 CompanyId = 1
             };

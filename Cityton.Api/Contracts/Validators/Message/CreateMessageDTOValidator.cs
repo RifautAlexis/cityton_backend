@@ -17,7 +17,7 @@ namespace Cityton.Api.Contracts.Validators
             RuleFor(cm => cm.Message)
                 .NotEmpty()
                 .When(cm => string.IsNullOrEmpty(cm.Message) && string.IsNullOrEmpty(cm.MediaUrl))
-                .WithMessage("Message and MediaUrl are null or empty");
+                .WithMessage("Message and MediaUrl are both null or empty");
         }
     }
 }

@@ -26,8 +26,6 @@ namespace Cityton.Api.Controllers
         [Route("signup")]
         public async Task<IActionResult> Signup(SignupRequest request, [FromServices] IHandler<SignupRequest, ObjectResult> handler)
         {
-            
-            if (!ModelState.IsValid) return BadRequest(this.ModelState);
             return await handler.Handle(request);
         }
 
