@@ -51,12 +51,11 @@ namespace Cityton.Api.Handlers
                 }
             }
 
-            int maxGroupSize = await _appDBContext.Companies
+            Company company = await _appDBContext.Companies
                 .Where(c => c.Id == 1)
-                .Select(c => c.MaxGroupSize)
                 .FirstOrDefaultAsync();
 
-            List<GroupMinimalDTO> groupsDTO = groups.ToGroupMinimalDTO(maxGroupSize);
+            List<GroupMinimalDTO> groupsDTO = groups.ToGroupMinimalDTO(company.MinGroupSize, company.MaxGroupSize);
 
             return new OkObjectResult(groupsDTO);
         }

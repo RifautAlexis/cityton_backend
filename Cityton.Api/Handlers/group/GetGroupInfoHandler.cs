@@ -32,12 +32,11 @@ namespace Cityton.Api.Handlers
 
             if (group == null) { return new NotFoundObjectResult("No user found"); }
 
-            int maxGroupSize = await _appDBContext.Companies
+            Company company = await _appDBContext.Companies
                 .Where(c => c.Id == 1)
-                .Select(c => c.MaxGroupSize)
                 .FirstOrDefaultAsync();
 
-            GroupDTO groupInfo = group.ToDTO(maxGroupSize);
+            GroupDTO groupInfo = group.ToDTO(company.MinGroupSize, company.MaxGroupSize);
 
             return new OkObjectResult(groupInfo);
         }
