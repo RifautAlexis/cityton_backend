@@ -12,21 +12,24 @@ using Cityton.Api.Contracts.Mappers;
 
 namespace Cityton.Api.Handlers
 {
-    public class SearchChallengeHandler : IHandler<SearchChallengeRequest, ObjectResult>
+    public class AdminSearchChallengeHandler : IHandler<AdminSearchChallengeRequest, ObjectResult>
     {
         private readonly ApplicationDBContext _appDBContext;
 
-        public SearchChallengeHandler(ApplicationDBContext appDBContext)
+        public AdminSearchChallengeHandler(ApplicationDBContext appDBContext)
         {
             _appDBContext = appDBContext;
         }
 
-        public async Task<ObjectResult> Handle(SearchChallengeRequest request)
+        public async Task<ObjectResult> Handle(AdminSearchChallengeRequest request)
         {
+            
+            (string searchText, DateTime? date) = request;
+
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
             
             List<Challenge> challenges = await _appDBContext.Challenges
-                .Where(c => (string.IsNullOrEmpty(request.SearchText) || c.Title.Contains(request.SearchText, comparison) || c.Statement.Contains(request.SearchText, comparison)) && (request.Date == null || c.CreatedAt >= request.Date))
+                .Where(c => (string.IsNullOrEmpty(searchText) || c.Title.Contains(searchText, comparison) || c.Statement.Contains(searchText, comparison)) && (date == null || c.CreatedAt >= date))
                 .OrderByDescending(c => c.CreatedAt).Include(c => c.Achievements)
                 .ToListAsync();
 

@@ -12,9 +12,16 @@ namespace Cityton.Api.Controllers
     [Authorize]
     public class ChallengeController : ControllerBase
     {
-        [HttpGet("search")]
+        [HttpGet("searchAdmin")]
         [Authorized(Role.Admin)]
-        public async Task<IActionResult> Search(SearchChallengeRequest request, [FromServices] IHandler<SearchChallengeRequest, ObjectResult> handler)
+        public async Task<IActionResult> Search(AdminSearchChallengeRequest request, [FromServices] IHandler<AdminSearchChallengeRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpGet("searchProgression")]
+        [Authorized(Role.Checker, Role.Admin)]
+        public async Task<IActionResult> Search(ProgressionSearchChallengeRequest request, [FromServices] IHandler<ProgressionSearchChallengeRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }
@@ -57,6 +64,13 @@ namespace Cityton.Api.Controllers
         [HttpPut("undo/{id}")]
         [Authorized(Role.Admin, Role.Checker)]
         public async Task<IActionResult> Undo(UndoChallengeRequest request, [FromServices] IHandler<UndoChallengeRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+
+        [HttpPost("attributeToGroup")]
+        [Authorized(Role.Admin)]
+        public async Task<IActionResult> AttributeToGroup(AttributeChallengeToGroupRequest request, [FromServices] IHandler<AttributeChallengeToGroupRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);
         }

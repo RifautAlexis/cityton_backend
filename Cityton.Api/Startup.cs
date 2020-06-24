@@ -49,8 +49,11 @@ namespace Cityton.Api
                 IHandler<GetProfileRequest, ObjectResult>,
                 GetProfileHandler>();
             services.AddScoped<
-                IHandler<SearchChallengeRequest, ObjectResult>,
-                SearchChallengeHandler>();
+                IHandler<AdminSearchChallengeRequest, ObjectResult>,
+                AdminSearchChallengeHandler>();
+            services.AddScoped<
+                IHandler<ProgressionSearchChallengeRequest, ObjectResult>,
+                ProgressionSearchChallengeHandler>();
             services.AddScoped<
                 IHandler<CreateChallengeRequest, ObjectResult>,
                 CreateChallengeHandler>();
@@ -121,6 +124,8 @@ namespace Cityton.Api
                 AttributeSupervisorHandler>();
             services.AddScoped<IHandler<ChangeRoleRequest, ObjectResult>,
                 ChangeRoleRequestHandler>();
+            services.AddScoped<IHandler<AttributeChallengeToGroupRequest, ObjectResult>,
+                AttributeChallengeToGroupHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
