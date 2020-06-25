@@ -22,6 +22,7 @@ namespace Cityton.Api.Contracts.Mappers
                 Role = data.Role,
                 Token = data.Token,
                 GroupId = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroupId).FirstOrDefault(),
+                GroupIdsRequested = data.ParticipantGroups?.Where(pg => pg.Status == Status.Waiting).Select(pg => pg.BelongingGroupId).ToList()
             };
         }
 

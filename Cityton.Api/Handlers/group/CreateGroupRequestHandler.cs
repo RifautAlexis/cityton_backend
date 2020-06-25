@@ -28,6 +28,7 @@ namespace Cityton.Api.Handlers
 
             Group group = await _appDBContext.Groups
                 .Where(g => g.Id == request.GroupId)
+                .Include(g => g.Members)
                 .FirstOrDefaultAsync();
 
             if (group == null) { return new NotFoundObjectResult("No corresponding group was found"); }
@@ -44,8 +45,11 @@ namespace Cityton.Api.Handlers
                 IsCreator = false,
                 Status = Status.Waiting,
                 CreatedAt = DateTime.Now,
+                BelongingGroupId = request.GroupId,
+                UserId = currentUserId
             };
             
+            await _appDBContext.ParticipantGroups.AddAsync(participantGroup);
             await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(true);

@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Cityton.Api.Contracts.Requests;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Cityton.Api.Handlers
 {
@@ -65,6 +68,13 @@ namespace Cityton.Api.Handlers
             };
 
             await _appDBContext.UsersInDiscussion.AddAsync(userInDiscussion);
+            await _appDBContext.SaveChangesAsync();
+
+            List<ParticipantGroup> requestsToDelete = await _appDBContext.ParticipantGroups
+                .Where(pg => pg.Status == Status.Waiting)
+                .ToListAsync();
+
+            _appDBContext.ParticipantGroups.RemoveRange(requestsToDelete);
             await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(true);

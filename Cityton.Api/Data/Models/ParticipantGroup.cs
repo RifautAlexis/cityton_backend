@@ -5,7 +5,7 @@ namespace Cityton.Api.Data.Models
     {
 
         public bool IsCreator { get; set; }
-        public Status Status { get; set; } = Status.Waiting;
+        public Status Status { get; set; }
         public DateTime CreatedAt { get; set; }
 
         /*****/
