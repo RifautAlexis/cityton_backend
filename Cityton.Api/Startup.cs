@@ -126,6 +126,8 @@ namespace Cityton.Api
                 ChangeRoleRequestHandler>();
             services.AddScoped<IHandler<AttributeChallengeToGroupRequest, ObjectResult>,
                 AttributeChallengeToGroupHandler>();
+            services.AddScoped<IHandler<LeaveGroupRequest, ObjectResult>,
+                LeaveGroupHandler>();
 
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 

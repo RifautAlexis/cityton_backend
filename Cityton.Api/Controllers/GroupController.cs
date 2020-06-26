@@ -54,6 +54,13 @@ namespace Cityton.Api.Controllers
             return await handler.Handle(request);
         }
         
+        [HttpDelete("leaveGroup/{id}")]
+        [Authorized(Role.Member)]
+        public async Task<IActionResult> LeaveGroup(LeaveGroupRequest request, [FromServices] IHandler<LeaveGroupRequest, ObjectResult> handler)
+        {
+            return await handler.Handle(request);
+        }
+        
         [HttpDelete("deleteGroupRequest/{id}")]
         [Authorized(Role.Member)]
         public async Task<IActionResult> DeleteGroupRequest(DeleteGroupRequestRequest request, [FromServices] IHandler<DeleteGroupRequestRequest, ObjectResult> handler)
@@ -61,7 +68,7 @@ namespace Cityton.Api.Controllers
             return await handler.Handle(request);
         }
         
-        [HttpDelete("acceptGroupRequest/{id}")]
+        [HttpPut("acceptGroupRequest/{id}")]
         [Authorized(Role.Member)]
         public async Task<IActionResult> AcceptGroupRequest(AcceptGroupRequestRequest request, [FromServices] IHandler<AcceptGroupRequestRequest, ObjectResult> handler)
         {
