@@ -29,33 +29,42 @@ namespace Cityton.Api.Handlers
 
             List<Group> groups = await _appDBContext.Groups
                 .Where(g => string.IsNullOrEmpty(groupName) || g.Name.Contains(groupName, comparison))
-                .OrderByDescending(c => c.CreatedAt)
+                .OrderBy(c => c.Name)
                 .Include(g => g.Supervisor)
                 .Include(g => g.Members)
                 .ThenInclude(pg => pg.User)
                 .ToListAsync();
 
+
+            (int groupMinSize, int groupMaxSize) = await _appDBContext.Companies.Where(c => c.Id == 1).FirstOrDefaultAsync();
+            System.Console.WriteLine("MaxSize => " + groupMaxSize);
+            System.Console.WriteLine("MinSize => " + groupMinSize);
+
             if (selectedFilter != FilterGroup.All)
             {
-                (int groupMaxSize, int groupMinSize) = await _appDBContext.Companies.Where(c => c.Id == 1).FirstOrDefaultAsync();
-
                 if (selectedFilter == FilterGroup.Full)
                 {
-                    groups = groups.Where(g => g.Members.Count == groupMaxSize).ToList();
+                    groups = groups.Where(g => g.Members.Where(pg => pg.Status == Status.Accepted).Count() == groupMaxSize).ToList();
                 }
                 else if (selectedFilter == FilterGroup.NotFull)
                 {
-                    groups = groups.Where(g => g.Members.Count < groupMaxSize).ToList();
-                } else {
-                    groups = groups.Where(g => g.Members.Count < groupMinSize).ToList();
+                    groups = groups.Where(g => g.Members.Where(pg => pg.Status == Status.Accepted).Count() < groupMaxSize).ToList();
+                }
+                else
+                {
+                    groups = groups.Where(g => g.Members.Where(pg => pg.Status == Status.Accepted).Count() < groupMinSize).ToList();
                 }
             }
 
-            Company company = await _appDBContext.Companies
-                .Where(c => c.Id == 1)
-                .FirstOrDefaultAsync();
+            System.Console.WriteLine("====================");
+            foreach (var group in groups)
+            {
+                System.Console.WriteLine(group.Name + " => " + group.Members.Count);
+                System.Console.WriteLine(group.Members.Where(pg => pg.Status == Status.Accepted).Count());
+            }
+            System.Console.WriteLine("====================");
 
-            List<GroupMinimalDTO> groupsDTO = groups.ToGroupMinimalDTO(company.MinGroupSize, company.MaxGroupSize);
+            List<GroupMinimalDTO> groupsDTO = groups.ToGroupMinimalDTO(groupMinSize, groupMaxSize);
 
             return new OkObjectResult(groupsDTO);
         }

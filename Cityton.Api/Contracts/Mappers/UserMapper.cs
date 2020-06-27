@@ -37,7 +37,7 @@ namespace Cityton.Api.Contracts.Mappers
                 Email = data.Email,
                 Picture = data.Picture,
                 Role = data.Role,
-                GroupName = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroup.Name).FirstOrDefault(),
+                GroupName = data.ParticipantGroups?.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroup.Name).FirstOrDefault()
             };
         }
 

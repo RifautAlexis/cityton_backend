@@ -34,7 +34,7 @@ namespace Cityton.Api.Handlers
 
             int actualGroupSize = await _appDBContext.Groups
                 .Where(g => g.Id == membershipToUpdate.BelongingGroupId)
-                .Select(g => g.Members.Count)
+                .Select(g => g.Members.Where(pg => pg.Status == Status.Accepted).Count())
                 .FirstOrDefaultAsync();
 
             if (actualGroupSize < maxGroupSize)

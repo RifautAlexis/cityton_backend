@@ -19,8 +19,8 @@ namespace Cityton.Api.Contracts.Mappers
                 Creator = data.Members.Where(pg => pg.IsCreator == true).Select(pg => pg.User.ToUserMinimalDTO()).FirstOrDefault(),
                 Members = data.Members.Where(pg => pg.IsCreator == false && pg.Status == Status.Accepted).ToList().ToParticipantGroupMinimalDTO(),
                 RequestsAdhesion = data.Members.Where(pg => pg.IsCreator == false && pg.Status == Status.Waiting).ToList().ToParticipantGroupMinimalDTO(),
-                HasReachMinSize = data.Members.Count >= minGroupSize,
-                HasReachMaxSize = data.Members.Count == maxGroupSize,
+                HasReachMinSize = data.Members.Where(pg => pg.Status == Status.Accepted).Count() >= minGroupSize,
+                HasReachMaxSize = data.Members.Where(pg => pg.Status == Status.Accepted).Count() == maxGroupSize,
                 Supervisor = data.Supervisor == null ? null : data.Supervisor.ToUserMinimalDTO()
             };
         }
