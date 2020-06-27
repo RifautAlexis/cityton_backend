@@ -37,8 +37,6 @@ namespace Cityton.Api.Handlers
 
 
             (int groupMinSize, int groupMaxSize) = await _appDBContext.Companies.Where(c => c.Id == 1).FirstOrDefaultAsync();
-            System.Console.WriteLine("MaxSize => " + groupMaxSize);
-            System.Console.WriteLine("MinSize => " + groupMinSize);
 
             if (selectedFilter != FilterGroup.All)
             {
@@ -55,14 +53,6 @@ namespace Cityton.Api.Handlers
                     groups = groups.Where(g => g.Members.Where(pg => pg.Status == Status.Accepted).Count() < groupMinSize).ToList();
                 }
             }
-
-            System.Console.WriteLine("====================");
-            foreach (var group in groups)
-            {
-                System.Console.WriteLine(group.Name + " => " + group.Members.Count);
-                System.Console.WriteLine(group.Members.Where(pg => pg.Status == Status.Accepted).Count());
-            }
-            System.Console.WriteLine("====================");
 
             List<GroupMinimalDTO> groupsDTO = groups.ToGroupMinimalDTO(groupMinSize, groupMaxSize);
 
