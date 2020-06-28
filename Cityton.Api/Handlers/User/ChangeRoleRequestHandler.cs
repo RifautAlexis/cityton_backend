@@ -26,16 +26,20 @@ namespace Cityton.Api.Handlers
                 .Include(u => u.GroupsSupervised)
                     .ThenInclude(g => g.Discussion)
                 .Include(u => u.UsersInDiscussion)
+                    .ThenInclude(uid => uid.Discussion)
                 .FirstOrDefaultAsync();
 
             if (user == null) { return new NotFoundObjectResult("No corresponding user was found"); }
 
             if ((user.Role == Role.Admin || user.Role == Role.Checker) && (Role)request.RoleId == Role.Member)
             {
-                List<UserInDiscussion> usersInDiscussion = user.UsersInDiscussion.Where(uid => user.GroupsSupervised.Any(g => g.DiscussionId == uid.Discussion.Id)).ToList();
+                List<UserInDiscussion> usersInDiscussion = user.UsersInDiscussion.Where(uid => user.GroupsSupervised.Any(g => g.DiscussionId == uid.Discussion.Id) || uid.Discussion.Name == "staff").ToList();
                 _appDBContext.UsersInDiscussion.RemoveRange(usersInDiscussion);
 
-                _appDBContext.RemoveRange(user.GroupsSupervised);
+                foreach (var group in user.GroupsSupervised)
+                {
+                    group.SupervisorId = null;
+                }
 
                 await _appDBContext.SaveChangesAsync();
             }

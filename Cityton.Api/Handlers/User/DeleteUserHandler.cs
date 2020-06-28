@@ -19,6 +19,7 @@ namespace Cityton.Api.Handlers
 
         public async Task<ObjectResult> Handle(DeleteUserRequest request)
         {
+
             User user = await _appDBContext.Users
                 .Where(u => u.Id == request.Id)
                 .Include(u => u.ParticipantGroups)
@@ -27,39 +28,52 @@ namespace Cityton.Api.Handlers
                 .Include(u => u.Achievements)
                 .Include(u => u.UsersInDiscussion)
                 .Include(u => u.MessagesWriten)
+                .Include(u => u.GroupsSupervised)
                 .FirstOrDefaultAsync();
 
-            if (user == null) { return new NotFoundObjectResult("No corresponding user was found"); }
+            if (user == null) return new NotFoundObjectResult("No corresponding user was found");
 
-            int groupId = user.ParticipantGroups
-                .Where(pg => pg.IsCreator == true)
-                .Select(pg => pg.BelongingGroupId)
-                .FirstOrDefault();
-
-            if (groupId > 0)
+            if (user.Role == Role.Member)
             {
 
-                Group groupToRemove = await _appDBContext.Groups
-                    .Where(g => g.Id == groupId)
-                    .Include(g => g.Members)
-                    .Include(g => g.Discussion)
-                        .ThenInclude(d => d.UsersInDiscussion)
-                    .Include(d => d.Discussion)
-                        .ThenInclude(d => d.Messages)
-                    .FirstOrDefaultAsync();
+                int belongingGroupId = user.ParticipantGroups
+                    .Where(pg => pg.Status == Status.Accepted)
+                    .Select(pg => pg.BelongingGroupId)
+                    .FirstOrDefault();
 
-
-                if (groupToRemove != null)
+                if (belongingGroupId > 0)
                 {
-                    groupToRemove.Members.Clear();
 
-                    groupToRemove.Discussion.UsersInDiscussion.Clear();
-                    groupToRemove.Discussion.Messages.Clear();
+                    bool isCreator = user.ParticipantGroups.Any(pg => pg.IsCreator);
+                    if (isCreator)
+                    {
+                        Group groupToRemove = await _appDBContext.Groups
+                        .Where(g => g.Id == belongingGroupId)
+                        .Include(g => g.Members)
+                        .Include(g => g.Discussion)
+                            .ThenInclude(d => d.UsersInDiscussion)
+                        .Include(d => d.Discussion)
+                            .ThenInclude(d => d.Messages)
+                        .FirstOrDefaultAsync();
 
-                    _appDBContext.Discussions.Remove(groupToRemove.Discussion);
+                        if (groupToRemove == null) return new BadRequestObjectResult("Group Id found but not the group");
 
-                    _appDBContext.Groups.Remove(groupToRemove);
+                        groupToRemove.SupervisorId = null;
+                        groupToRemove.Members.Clear();
+
+                        groupToRemove.Discussion.UsersInDiscussion.Clear();
+                        groupToRemove.Discussion.Messages.Clear();
+
+                        _appDBContext.Discussions.Remove(groupToRemove.Discussion);
+
+                        _appDBContext.Groups.Remove(groupToRemove);
+
+                        await _appDBContext.SaveChangesAsync();
+                    }
                 }
+
+            } else {
+                user.GroupsSupervised.Clear();
             }
 
             foreach (var messageWriten in user.MessagesWriten)
@@ -77,8 +91,9 @@ namespace Cityton.Api.Handlers
                 achievement.WinnerId = null;
             }
 
-            _appDBContext.Users.Remove(user);
+            user.UsersInDiscussion.Clear();
 
+            _appDBContext.Users.Remove(user);
             await _appDBContext.SaveChangesAsync();
 
             return new OkObjectResult(true);

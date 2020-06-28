@@ -14,7 +14,6 @@ namespace Cityton.Api.Contracts.Validators
             RuleFor(request => request.Id)
                 .SetValidator(new IdValidator());
             RuleFor(request => request.RoleId)
-                .SetValidator(new IdValidator())
                 .IsInEnum().WithMessage("Is not a valid Role");
 
         }

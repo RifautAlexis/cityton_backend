@@ -62,7 +62,7 @@ namespace Cityton.Api.Controllers
 
         [HttpPut]
         [Authorized(Role.Admin)]
-        [Route("changeRole")]
+        [Route("changeRole/{id}")]
         public async Task<IActionResult> ChangeRole(ChangeRoleRequest request, [FromServices] IHandler<ChangeRoleRequest, ObjectResult> handler)
         {
             return await handler.Handle(request);

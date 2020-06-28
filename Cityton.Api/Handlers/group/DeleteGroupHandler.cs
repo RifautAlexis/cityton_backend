@@ -29,6 +29,7 @@ namespace Cityton.Api.Handlers
 
             if (groupToRemove == null) { return new NotFoundObjectResult("No corresponding group was found"); }
 
+            groupToRemove.SupervisorId = null;
             groupToRemove.Members.Clear();
 
             groupToRemove.Discussion.UsersInDiscussion.Clear();
