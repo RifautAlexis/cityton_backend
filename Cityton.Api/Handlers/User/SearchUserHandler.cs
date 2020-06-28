@@ -24,17 +24,14 @@ namespace Cityton.Api.Handlers
         public async Task<ObjectResult> Handle(SearchUserRequest request)
         {
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
-            System.Console.WriteLine("ROLE => " + request.SelectedRole);
-            System.Console.WriteLine(request.SelectedRole == Role.Member);
-            System.Console.WriteLine(request.SelectedRole == Role.Checker);
-            System.Console.WriteLine(request.SelectedRole == Role.Admin);
 
-            List<User> users = await _appDBContext.Users
+            List<UserProfileDTO> userProfileDTO = await _appDBContext.Users
                 .Where(u => (request.SelectedRole == null || u.Role == request.SelectedRole) && (string.IsNullOrEmpty(request.SearchText) || u.Username.Contains(request.SearchText, comparison)))
-                .OrderByDescending(u => u.Role).Include(u => u.ParticipantGroups).ThenInclude(pg => pg.BelongingGroup)
+                .OrderByDescending(u => u.Role)
+                .Include(u => u.ParticipantGroups)
+                    .ThenInclude(pg => pg.BelongingGroup)
+                .Select(u => u.ToUserProfile())
                 .ToListAsync();
-            System.Console.WriteLine(users.Count);
-            List<UserProfileDTO> userProfileDTO = users.Select(u => u.ToUserProfile()).ToList();
 
             return new OkObjectResult(userProfileDTO);
         }
